@@ -5,7 +5,7 @@ description: "The index page of my website"
 ---
 # {{ title }}
 
-## Bookworm episodes
+## Episodes
 {% for i in bwFeed.items %}
 * {{ i.title | safe }}
 {% endfor %}
