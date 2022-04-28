@@ -1,0 +1,17 @@
+{
+  "name": "11ty-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "watch:eleventy": "npx @11ty/eleventy --serve",
+    "watch:sass": "npx sass src/sass:public/css --no-source-map --watch",
+    "start": "npm run watch:eleventy & npm run watch:sass"
+  },
+  "keywords": [],
+  "author": "Joschua",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.51.0"
+  }
+}
