@@ -1,4 +1,4 @@
-﻿{
+module.exports = {
     "status": "ok",
     "feed": {
         "url": "https://bookworm.fm/feed/podcast/",
