@@ -1,5 +1,5 @@
 {
-  "name": "11ty-template",
+  "name": "bookworm-stats",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -13,5 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "sass": "^1.51.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1"
   }
 }
