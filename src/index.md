@@ -6,10 +6,6 @@ description: "The index page of my website"
 # {{ title }}
 
 ## Bookworm episodes
-<ul>
 {% for i in bwFeed.items %}
-<li> 
-{{ i.title | safe }}
-</li>
+* {{ i.title | safe }}
 {% endfor %}
-</ul>
