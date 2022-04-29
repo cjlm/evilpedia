@@ -12,6 +12,7 @@ module.exports = async function () {
 
     var url = "https://bookworm.fm/feed/podcast/";
     var rss = await parse(url);
-    console.log(JSON.stringify(rss, null, 3));
- return JSON.stringify(rss, null, 3);
+    //console.log(JSON.stringify(rss, null, 3));
+ let feedObj = JSON.stringify(rss, null, 3);
+ return feedObj.items;
 }
