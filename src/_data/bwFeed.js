@@ -14,5 +14,5 @@ module.exports = async function () {
     var rss = await parse(url);
     //console.log(JSON.stringify(rss, null, 3));
  let feedObj = JSON.stringify(rss, null, 3);
- return feedObj.items;
+ return rss.items[0].title;
 }
