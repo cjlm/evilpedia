@@ -6,4 +6,4 @@ description: "The index page of my website"
 # {{ title }}
 
 ## Episodes
-{{ bwFeed }}
+{{ bwFeed | log }}
