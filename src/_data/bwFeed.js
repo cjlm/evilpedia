@@ -7,7 +7,7 @@ module.exports = async function () {
     var rss = await parse(url);
     //let feedObj = JSON.stringify(rss, null, 3);
 
-    let myArr = [];
+    let epArr = [];
 
     for (let i = 0; i < rss.items.length; i++) {
         let str = rss.items[i].title;
@@ -15,9 +15,12 @@ module.exports = async function () {
         for (const match of matches) {
             const epNo = match[1]
             const title = match[2]
-            myArr.push(epNo);
-            myArr.push(title);
+            var obj = {
+                "no": epNo,
+                "title": title
+            }
+            epArr.push(obj);
         }
     }
-    return myArr;
+    return epArr;
 }
