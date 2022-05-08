@@ -1,7 +1,10 @@
 const { parse } = require('rss-to-json');
 
 module.exports = async function () {
-    var titleReg = /^(\d+).*?(\w+.+)/g;
+    const titleReg = /^(\d+).*?(\w+.+)/g;
+    const mikeReg = /Mike's Rating: ([\d.]*?)(?=[^\d.])/;
+    const joeReg = /Joe's Rating: ([\d.]*?)(?=[^\d.])/;
+    // hit content: rss.items[i].content
 
     var url = "https://bookworm.fm/feed/podcast/";
     var rss = await parse(url);
@@ -22,5 +25,5 @@ module.exports = async function () {
             epArr.push(obj);
         }
     }
-    return epArr;
+    return rss.items;
 }
