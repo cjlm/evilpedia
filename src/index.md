@@ -7,6 +7,7 @@ description: "The index page of my website"
 
 ## Episodes
 {{ bwFeed | log }}
+
 <table>
 <thead>
 <tr>
@@ -18,8 +19,8 @@ description: "The index page of my website"
 {% for i in bwFeed %}
 <tbody>
 <tr>
-<td>{{i.no}}</td>
-<td>{{i.title}}</td>
+<td>{{i.no | safe}}</td>
+<td>{{i.title | safe}}</td>
 </tr>
 </tbody>
 {% endfor %}
