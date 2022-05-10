@@ -13,17 +13,23 @@ module.exports = async function () {
     let epArr = [];
 
     for (let i = 0; i < rss.items.length; i++) {
-        let str = rss.items[i].title;
-        const matches = str.matchAll(titleReg);
+        let titleStr = rss.items[i].title;
+        let contentStr = rss.items[i].content;
+        let obj = {};
+        const matches = titleStr.matchAll(titleReg);
         for (const match of matches) {
             const epNo = match[1]
             const title = match[2]
-            var obj = {
-                "no": epNo,
-                "title": title
-            }
-            epArr.push(obj);
+            obj.no = epNo;
+            obj.title = title;
         }
+
+        obj.ratingMike = contentStr.match(mikeReg)?.[1] ?? 0;
+        if (obj.ratingMike == 0) {
+            console.log(rss.items[i])
+        }
+
+        epArr.push(obj);
     }
     return rss.items;
 }
