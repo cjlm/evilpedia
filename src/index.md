@@ -6,7 +6,7 @@ description: "The index page of my website"
 # {{ title }}
 
 ## Episodes
-{{ bwFeed | log }}
+{{ bwFeed }}
 
 <table>
 <thead>
