@@ -2,8 +2,8 @@ const { parse } = require('rss-to-json');
 
 module.exports = async function () {
     const titleReg = /^(\d+).*?(\w+.+)/g;
-    const mikeReg = /Mike's Rating: ([\d.]*?)(?=[^\d.])/;
-    const joeReg = /Joe's Rating: ([\d.]*?)(?=[^\d.])/;
+    const mikeReg = /Mike(?:'|&#8217;)s Rating: ([\d.]*?)(?=[^\d.])/;
+    const joeReg = /Joe(?:'|&#8217;)s Rating: ([\d.]*?)(?=[^\d.])/;
     // hit content: rss.items[i].content
 
     var url = "https://bookworm.fm/feed/podcast/";
