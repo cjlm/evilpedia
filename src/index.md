@@ -6,13 +6,14 @@ description: "The index page of my website"
 # {{ title }}
 
 ## Episodes
-{{ bwFeed }}
 
 <table>
 <thead>
 <tr>
-<th>Episode</th>
+<th>No</th>
 <th>Title</th>
+<th>Mike's Rating</th>
+<th>Joe's Rating</th>
 </tr>
 </thead>
 
@@ -20,7 +21,9 @@ description: "The index page of my website"
 <tbody>
 <tr>
 <td>{{i.no | safe}}</td>
-<td>{{i.title | safe}}</td>
+<td><a href="{{i.url}}">{{i.title | safe}}</a></td>
+<td>{{i.ratingMike}}</td>
+<td>{{i.ratingJoe}}</td>
 </tr>
 </tbody>
 {% endfor %}
