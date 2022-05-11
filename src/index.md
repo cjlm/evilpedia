@@ -22,7 +22,7 @@ description: "The index page of my website"
 <tbody>
 <tr>
 <td>{{i.no | safe}}</td>
-<td><a href="{{i.url}}">{{i.title | safe}}</a></td>
+<td><a href="{{i.link}}">{{i.title | safe}}</a></td>
 <td>{{i.ratingMike}}</td>
 <td>{{i.ratingJoe}}</td>
 <td>{{i.ratingAve}}</td>
