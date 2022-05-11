@@ -33,8 +33,9 @@ module.exports = async function () {
             obj.rating = true;
         }
 
-        epArr.push(obj);
-        console.log(obj);
+        if (obj.no != undefined) {
+           epArr.push(obj); 
+        } 
     }
-    return rss.items;
+    return epArr;
 }
