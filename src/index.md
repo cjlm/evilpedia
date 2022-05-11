@@ -14,6 +14,7 @@ description: "The index page of my website"
 <th>Title</th>
 <th>Mike's Rating</th>
 <th>Joe's Rating</th>
+<th>Average Rating</th>
 </tr>
 </thead>
 
@@ -24,6 +25,7 @@ description: "The index page of my website"
 <td><a href="{{i.url}}">{{i.title | safe}}</a></td>
 <td>{{i.ratingMike}}</td>
 <td>{{i.ratingJoe}}</td>
+<td>{{i.ratingAve}}</td>
 </tr>
 </tbody>
 {% endfor %}
