@@ -25,14 +25,15 @@ module.exports = async function () {
         }
 
         obj.link = "https://bookworm.fm/" + obj.no + "/";
-        obj.ratingMike = contentStr.match(mikeReg)?.[1] ?? "-";
-        obj.ratingJoe = contentStr.match(joeReg)?.[1] ?? "-";
-        if (obj.ratingMike == "-") {
+        obj.ratingMike = contentStr.match(mikeReg)?.[1] ?? "";
+        obj.ratingJoe = contentStr.match(joeReg)?.[1] ?? "";
+        if (obj.ratingMike == "") {
             obj.rating = false;
         } else {
             obj.rating = true;
         }
-
+        if (obj.rating) { obj.ratingAve = (parseFloat(obj.ratingJoe) + parseFloat(obj.ratingMike))/2};
+        if (Number.isInteger(obj.ratingAve)) { obj.ratingAve += ".0"}
         if (obj.no != undefined) {
            epArr.push(obj); 
         } 
