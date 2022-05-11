@@ -24,12 +24,17 @@ module.exports = async function () {
             obj.title = title;
         }
 
-        obj.ratingMike = contentStr.match(mikeReg)?.[1] ?? 0;
-        if (obj.ratingMike == 0) {
-            console.log(rss.items[i])
+        obj.link = "https://bookworm.fm/" + obj.no + "/";
+        obj.ratingMike = contentStr.match(mikeReg)?.[1] ?? "-";
+        obj.ratingJoe = contentStr.match(joeReg)?.[1] ?? "-";
+        if (obj.ratingMike == "-") {
+            obj.rating = false;
+        } else {
+            obj.rating = true;
         }
 
         epArr.push(obj);
+        console.log(obj);
     }
     return rss.items;
 }
