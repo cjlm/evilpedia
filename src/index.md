@@ -1,5 +1,5 @@
 ---
-title: Index
+title: Bookworm stats
 layout: base.html
 description: "The index page of my website"
 ---
@@ -18,8 +18,8 @@ description: "The index page of my website"
 </tr>
 </thead>
 
-{% for i in bwFeed %}
 <tbody>
+{% for i in bwFeed %}
 <tr>
 <td>{{i.no | safe}}</td>
 <td><a href="{{i.link}}">{{i.title | safe}}</a></td>
@@ -27,6 +27,6 @@ description: "The index page of my website"
 <td>{{i.ratingJoe}}</td>
 <td>{{i.ratingAve}}</td>
 </tr>
-</tbody>
 {% endfor %}
+</tbody>
 </table>
