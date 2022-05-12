@@ -1,0 +1,35 @@
+// Variables
+:root {
+    --text-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+    --surface: #eee;
+    --inverse-surface: black;
+    --inverse-text: white;
+    --surface-accent: #eee;
+}
+// Tables
+table {
+    font-family: var(--text-font);
+    font-size: 14px;
+    border-collapse: collapse;
+    width: 600px;
+}
+
+td,
+th {
+    padding: 10px;
+    text-align: left;
+    margin: 0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--surface-accent);
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: var(--inverse-surface);
+    color: var(--inverse-text);
+}
