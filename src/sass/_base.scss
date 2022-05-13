@@ -1,11 +1,12 @@
 // Variables
 // Colors from https://access.mymind.com/colors
-    $primary: #012F63;
-    $primary-light: lighten($primary, 70%);
+    $primary:#5C457B;
+    $secondary:#FF7D39;
+    $muted:lighten($secondary, 36%);
+
+    $primary-light: lighten($primary, 50%);
     $primary-faint: lighten($primary, 75%);
-    $secondary: #FE667B;
     $secondary-light: lighten($secondary, 20%);
-    $muted: #C0C2CE;
     $muted-light: lighten($muted, 15%);
 
 :root {
@@ -93,6 +94,7 @@ h2 {
     font-size: 32px;
     font-weight: 400;
     color: $primary;
+    margin-top: 15px;
 }
 [role="doc-subtitle"] {
     text-align: center;
