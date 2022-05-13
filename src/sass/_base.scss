@@ -77,7 +77,11 @@ a {
 body {
     background-color: $muted;
 }
+.fa-star,
+.fa-star-half {
+    color: $primary;
 
+}
 // Fonts
 h1 {
     margin-bottom: 5px;
