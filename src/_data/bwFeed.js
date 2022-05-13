@@ -66,6 +66,14 @@ module.exports = async function () {
     returnObj.episodes = epArr;
 
     // Fun facts
-
+    // Double five star episodes
+    var i = returnObj.episodes.length;
+    var fiveStarEps = [];
+    while (i--) {
+        if (epArr[i].ratingJoe == 5 && epArr[i].ratingMike == 5) {
+            fiveStarEps.push(epArr[i])
+        }
+    }
+    returnObj.fiveStars = fiveStarEps.reverse();
     return returnObj;
 }
