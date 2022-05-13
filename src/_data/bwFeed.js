@@ -31,6 +31,8 @@ module.exports = async function () {
             obj.rating = false;
         } else {
             obj.rating = true;
+            obj.starsMike = starify(obj.ratingMike);
+            obj.starsJoe = starify(obj.ratingJoe);
         }
         if (obj.rating) { obj.ratingAve = (parseFloat(obj.ratingJoe) + parseFloat(obj.ratingMike))/2};
         if (Number.isInteger(obj.ratingAve)) { obj.ratingAve += ".0"}
@@ -38,5 +40,14 @@ module.exports = async function () {
            epArr.push(obj); 
         } 
     }
+    function starify(rating) {
+        var starryString;
+        starryString = '<i class="fa-solid fa-star"></i>'.repeat(Math.floor(rating)); 
+        if (rating.endsWith(".5")) {
+            starryString += '<i class="fa-solid fa-star-half"></i>';
+        }
+        return starryString;
+    }
     return epArr;
+
 }
