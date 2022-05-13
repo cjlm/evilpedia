@@ -44,7 +44,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </table>
 </div>
 <div class="fact-cards">
-
+<div class="fact-card">
+<ul>
+{% for i in bwFeed.fiveStars %}
+<li>{{ i.title | safe}}</li>
+{% endfor %}
+</ul>
 </div>
-
+</div>
 </div>
