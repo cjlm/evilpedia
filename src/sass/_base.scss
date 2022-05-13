@@ -1,14 +1,18 @@
 // Variables
 // Colors from https://access.mymind.com/colors
+    $primary: #012F63;
+    $primary-light: lighten($primary, 70%);
+    $primary-faint: lighten($primary, 75%);
+    $secondary: #FE667B;
+    $secondary-light: lighten($secondary, 20%);
+
 :root {
     --text-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
     --text-accent: "Georgia";
-    --surface: #eee;
+    --surface: #fff;
     --muted: #C0C2CE;
-    --dark-accent: #012F63;
-    --accent: #FE667B;
     --inverse-surface: black;
     --inverse-text: white;
     --surface-accent: #eee;
@@ -19,15 +23,12 @@
     justify-content: center;
     flex-direction: column;
 }
-$border: 6px hidden #012F63;
 // Tables
 table {
     margin: 10px;
-    border: $border;
-    border-radius: 6px;
-    border-left: 0;
-    border-spacing: 0px;
-    border-collapse: separate;
+    border-spacing: 0;
+    border-collapse: collapse;
+    //border: .5px solid var(--dark-accent);
     font-family: var(--text-font);
     font-size: 14px;
     width: 600px;
@@ -35,29 +36,27 @@ table {
 
 td,
 th {
+    border: .1px solid $primary-light;
     padding: 10px;
     text-align: left;
-    border-left: $border;
     margin: 0;
 }
-
-td {
-    border-left: $border;
-}
-
-tbody tr:nth-child(even) {
-    background-color: var(--surface-accent);
+tr {
+    background-color: var(--surface);
+    &:hover {
+        background-color: $secondary-light;
+    }
 }
 
 th {
     position: sticky;
     top: 0;
-    background-color: var(--dark-accent);
-    color: var(--inverse-text);
+    background-color: $primary-faint;
+    color: $primary;
 }
 
 a {
-    color: var(--dark-accent);
+    color: $primary;
 }
 
 body {
@@ -73,7 +72,7 @@ h1 {
     font-weight: 300;
     letter-spacing: 0;
     text-align: center;
-    color: var(--accent);
+    color: $secondary;
 }
 [role="doc-subtitle"] {
     text-align: center;
