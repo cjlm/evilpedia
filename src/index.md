@@ -7,6 +7,7 @@ description: "The index page of my website"
 <div class="aligning">
 <div class="header">
 
+<i class="fa-solid fa-ranking-star"></i>
 # {{ title }}
 
 <div role="doc-subtitle">
@@ -15,6 +16,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </div>
 
 <div class="sheet">
+<i class="fa-solid fa-headphones"></i>
 
 ## Episodes
 <table>
@@ -33,8 +35,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <tr>
 <td>{{i.no | safe}}</td>
 <td><a href="{{i.link}}">{{i.title | safe}}</a></td>
-<td>{{i.ratingMike}}</td>
-<td>{{i.ratingJoe}}</td>
+<td>{{i.starsMike | safe}}</td>
+<td>{{i.starsJoe | safe}}</td>
 <td>{{i.ratingAve}}</td>
 </tr>
 {% endfor %}
