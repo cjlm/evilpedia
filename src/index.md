@@ -31,7 +31,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </thead>
 
 <tbody>
-{% for i in bwFeed %}
+{% for i in bwFeed.episodes %}
 <tr>
 <td>{{i.no | safe}}</td>
 <td><a href="{{i.link}}">{{i.title | safe}}</a></td>
@@ -42,6 +42,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 {% endfor %}
 </tbody>
 </table>
+</div>
+<div class="fact-cards">
+
 </div>
 
 </div>
