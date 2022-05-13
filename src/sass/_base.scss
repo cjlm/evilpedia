@@ -80,7 +80,9 @@ body {
 .fa-star,
 .fa-star-half {
     color: $primary;
-
+}
+.fact-cards {
+    display: flex;
 }
 // Fonts
 h1 {
