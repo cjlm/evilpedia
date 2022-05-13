@@ -4,6 +4,7 @@
     --text-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+    --text-accent: "Georgia";
     --surface: #eee;
     --muted: #C0C2CE;
     --dark-accent: #012F63;
@@ -12,11 +13,23 @@
     --inverse-text: white;
     --surface-accent: #eee;
 }
+.aligning {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+$border: 6px hidden #012F63;
 // Tables
 table {
+    margin: 10px;
+    border: $border;
+    border-radius: 6px;
+    border-left: 0;
+    border-spacing: 0px;
+    border-collapse: separate;
     font-family: var(--text-font);
     font-size: 14px;
-    border-collapse: collapse;
     width: 600px;
 }
 
@@ -24,7 +37,12 @@ td,
 th {
     padding: 10px;
     text-align: left;
+    border-left: $border;
     margin: 0;
+}
+
+td {
+    border-left: $border;
 }
 
 tbody tr:nth-child(even) {
@@ -40,4 +58,32 @@ th {
 
 a {
     color: var(--dark-accent);
+}
+
+body {
+    background-color: var(--muted);
+}
+
+// Fonts
+h1 {
+    margin-bottom: 5px;
+    font-family: var(--text-accent);
+    font-size: 3.375rem;
+    line-height: 4rem;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--accent);
+}
+[role="doc-subtitle"] {
+    text-align: center;
+    font-family: var(--text-font);
+    line-height: 24px;
+    size: 16px;
+    font-weight: 400;
+}
+.header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 500px;
 }
