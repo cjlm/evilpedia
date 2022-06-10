@@ -46,9 +46,11 @@ module.exports = async function () {
             // Turn numbers into star icons
             obj.starsMike = starify(obj.ratingMike);
             obj.starsJoe = starify(obj.ratingJoe);
-            obj.rating = false;
-        } else {
             obj.rating = true;
+        } else {
+            obj.rating = false;
+            obj.ratingMike = "";
+            obj.ratingJoe = "";
         }
         // Calculate combined rating
         if (obj.rating) { obj.ratingAve = (parseFloat(obj.ratingJoe) + parseFloat(obj.ratingMike))/2};
