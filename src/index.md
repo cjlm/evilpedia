@@ -33,6 +33,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </thead>
 
 <tbody>
+{{ bwFeed | log }}
 {% for i in bwFeed.episodes %}
 <tr>
 <td>{{i.no | safe}}</td>
