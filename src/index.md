@@ -13,6 +13,7 @@ description: "The index page of my website"
 # {{ title }}
 </div>
 <div role="doc-subtitle">
+<a href="/sort-combined">Sort by combined</a>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus. Sit amet justo donec enim diam vulputate ut pharetra sit. In massa tempor nec feugiat nisl.
 </div>
 </div>
@@ -32,8 +33,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </tr>
 </thead>
 
+
 <tbody>
-{{ bwFeed | log }}
+{% block tbody %}
 {% for i in bwFeed.episodes %}
 <tr>
 <td>{{i.no | safe}}</td>
@@ -51,7 +53,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <td>{{i.ratingAve}}</td>
 </tr>
 {% endfor %}
+{% endblock %}
 </tbody>
+
 </table>
 </div>
 <div class="card-container">
