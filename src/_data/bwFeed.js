@@ -31,9 +31,15 @@ module.exports = async function () {
         }
 
         obj.link = "https://bookworm.fm/" + obj.no + "/";
+        // Undefined handling. This should be easier with .? but somehow eleventy doesn't like it
+        var ratingM = contentStr.match(mikeReg) || false;
+        var ratingJ = contentStr.match(joeReg) || false;
+        ratingM = ratingM || ratingM[1];
+        ratingJ = ratingJ || ratingJ[1];
 
-        obj.ratingMike = contentStr.match(mikeReg)?.[1] ?? "";
-        obj.ratingJoe = contentStr.match(joeReg)?.[1] ?? "";
+        obj.ratingMike = ratingM;
+        obj.ratingJoe = ratingJ;
+        
         // Deal with episode without rating
         if (obj.ratingMike == "") {
             obj.rating = false;
@@ -55,9 +61,11 @@ module.exports = async function () {
 
     // Font Awesome star function
     function starify(rating) {
+        if (rating == undefined) { return; }
         var starryString;
         starryString = '<i class="fa-solid fa-star"></i>'.repeat(Math.floor(rating)); 
-        if (rating.endsWith(".5")) {
+        var lastTwo = rating.slice(-2);
+        if (lastTwo = ".5") {
             starryString += '<i class="fa-solid fa-star-half"></i>';
         }
         return starryString;
