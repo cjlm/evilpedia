@@ -34,20 +34,21 @@ module.exports = async function () {
         // Undefined handling. This should be easier with .? but somehow eleventy doesn't like it
         var ratingM = contentStr.match(mikeReg) || false;
         var ratingJ = contentStr.match(joeReg) || false;
-        ratingM = ratingM || ratingM[1];
-        ratingJ = ratingJ || ratingJ[1];
+        if (ratingM != false) { ratingM = ratingM[1];};
+        if (!ratingJ != false) { ratingJ = ratingJ[1];};
 
         obj.ratingMike = ratingM;
+        console.log(ratingM);
         obj.ratingJoe = ratingJ;
         
         // Deal with episode without rating
-        if (obj.ratingMike == "") {
-            obj.rating = false;
-        } else {
-            obj.rating = true;
+        if (obj.ratingMike != false) {
             // Turn numbers into star icons
             obj.starsMike = starify(obj.ratingMike);
             obj.starsJoe = starify(obj.ratingJoe);
+            obj.rating = false;
+        } else {
+            obj.rating = true;
         }
         // Calculate combined rating
         if (obj.rating) { obj.ratingAve = (parseFloat(obj.ratingJoe) + parseFloat(obj.ratingMike))/2};
