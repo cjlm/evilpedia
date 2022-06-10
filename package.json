@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "rss-to-json": "^2.0.2",
-    "sass": "^1.51.0"
+    "sass": "^1.52.3"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1"
