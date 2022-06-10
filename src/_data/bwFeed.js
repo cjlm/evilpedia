@@ -35,7 +35,7 @@ module.exports = async function () {
         var ratingM = contentStr.match(mikeReg) || false;
         var ratingJ = contentStr.match(joeReg) || false;
         if (ratingM != false) { ratingM = ratingM[1];};
-        if (!ratingJ != false) { ratingJ = ratingJ[1];};
+        if (ratingJ != false) { ratingJ = ratingJ[1];};
 
         obj.ratingMike = ratingM;
         console.log(ratingM);
