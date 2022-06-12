@@ -1,6 +1,7 @@
 // SASS watcher
 // https://jkc.codes/blog/using-sass-with-eleventy/
 module.exports = function (eleventyConfig) {
+    eleventyConfig.addPassthroughCopy("src/js/tablesort.js");
     eleventyConfig.setBrowserSyncConfig({
         files: './public/css/**/*.css'
     });
