@@ -22,7 +22,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <i class="fa-solid fa-headphones"></i>
 
 ## Episodes
-<table>
+<table class="table-sortable">
 <thead>
 <tr>
 <th>No</th>
@@ -42,11 +42,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <td>
 <a href="{{i.link}}">{{i.title | safe}}</a>
 </td>
-<td> 
+<td class="rating-cell"> 
 <span class="rating-no">{{i.ratingMike}}</span>
 <span class ="rating-stars">{{i.starsMike | safe}}</span>
 </td>
-<td>
+<td class="rating-cell">
 <span class="rating-no">{{i.ratingJoe}}</span>
 <span class ="rating-stars">{{i.starsJoe | safe}}</span>
 </td>
@@ -70,3 +70,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <div class="card-item">Another fun fact!</div>
 </div>
 </div>
+<script src="js/tablesort.js">
+</script>
