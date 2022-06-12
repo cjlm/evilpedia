@@ -67,8 +67,7 @@ module.exports = async function () {
         if (rating == undefined) { return; }
         var starryString;
         starryString = '<i class="fa-solid fa-star"></i>'.repeat(Math.floor(rating)); 
-        var lastTwo = rating.slice(-2);
-        if (lastTwo = ".5") {
+        if (rating.slice(-2) == ".5") {
             starryString += '<i class="fa-solid fa-star-half"></i>';
         }
         return starryString;
