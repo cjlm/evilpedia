@@ -38,7 +38,6 @@ module.exports = async function () {
         if (ratingJ != false) { ratingJ = ratingJ[1];};
 
         obj.ratingMike = ratingM;
-        console.log(ratingM);
         obj.ratingJoe = ratingJ;
         
         // Deal with episode without rating
@@ -46,6 +45,9 @@ module.exports = async function () {
             // Turn numbers into star icons
             obj.starsMike = starify(obj.ratingMike);
             obj.starsJoe = starify(obj.ratingJoe);
+            // Append Zeroes if necessary
+            obj.ratingMike = appendZeroes(obj.ratingMike);
+            obj.ratingJoe = appendZeroes(obj.ratingJoe);
             obj.rating = true;
         } else {
             obj.rating = false;
@@ -55,7 +57,7 @@ module.exports = async function () {
         // Calculate combined rating
         if (obj.rating) { obj.ratingAve = (parseFloat(obj.ratingJoe) + parseFloat(obj.ratingMike))/2};
         // Append '.0' to full ratings
-        if (Number.isInteger(obj.ratingAve)) { obj.ratingAve += ".0"}
+        obj.ratingAve = appendZeroes(obj.ratingAve);
         // Push episode object to array
         if (obj.no != undefined) {
            epArr.push(obj); 
@@ -63,6 +65,13 @@ module.exports = async function () {
     }
 
     // Font Awesome star function
+    function appendZeroes(rating) {
+        if (/^\d$/.test(rating)) {
+           var nulled = rating += ".0";
+           return nulled;
+        };
+        return rating;
+    }
     function starify(rating) {
         if (rating == undefined) { return; }
         var starryString;
