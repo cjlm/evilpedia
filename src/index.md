@@ -60,8 +60,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <div class="card-item">
 <p>{{ bwFeed.fiveStars | safe}}</p>
 </div>
-<div class="card-item"><p><span class="card-hl">Mike's average</span> rating is <span class="card-hl">{{ bwFeed.mikeAvg | safe }}</span>/5.</p></div>
-<div class="card-item"><p><span class="card-hl">Joe's average</span> rating is <span class="card-hl">{{ bwFeed.joeAvg | safe }}</span>/5.</p></div>
+<div class="card-item"><p>{{ bwFeed.mikeAvg | safe}}</p></div>
+<div class="card-item"><p>{{ bwFeed.joeAvg | safe}}</p></div>
 <div class="card-item">Another fun fact!</div>
 </div>
 </div>
