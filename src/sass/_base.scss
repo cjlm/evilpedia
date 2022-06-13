@@ -5,10 +5,13 @@
     $muted:lighten($secondary, 36%);
 
     $primary-light: lighten($primary, 50%);
-    $primary-faint: lighten($primary, 75%);
+    $primary-faint: lighten($primary, 55%);
     $secondary-light: lighten($secondary, 20%);
     $muted-light: lighten($muted, 1%);
 
+    $font-size-text: 16px;
+    $font-size-bigger: 18px;
+    $font-size-h1: 3.375rem;
     $items-width: 80%;
 // Mixins
 @mixin card($bg-color) {
@@ -83,7 +86,7 @@ tr {
 
 .table-sortable .th-sort-asc,
 .table-sortable .th-sort-desc {
-  background: rgba(0, 0, 0, 0.1);
+  background: $primary-faint;
 }
 
 // [data-tooltip] {
@@ -126,6 +129,12 @@ tr {
 // .tooltip {
 //     display: none;
 // } 
+.link-cell {
+ font-weight: 600;
+ a {
+    text-decoration: none;
+ }
+}
 @mixin animateFade {
     animation: fadein .5s;
 }
@@ -135,7 +144,7 @@ tr {
     @include animateFade();
 }
 .rating-stars {
-    opacity: 1;
+    opacity: .9;
     @include animateFade();
 }
 tr:hover { 
@@ -216,13 +225,24 @@ body {
     }
 }
 // Fonts
-.icon-center-one {
-   @include icon-center(2rem); 
+// .icon-center-one {
+//    @include icon-center(2rem); 
+//     i {
+//         color: $secondary-light;
+//         // opacity: .5;
+//     }
+// }
+.icon-center-two {
+   @include icon-center(1rem); 
+   padding-top: 10px;
+   h2 {
+    margin-top: 6px;
+   }
 }
 h1 {
     margin-bottom: 5px;
     font-family: var(--text-accent);
-    font-size: 3.375rem;
+    font-size: $font-size-h1;
     line-height: 4rem;
     font-weight: 300;
     letter-spacing: 0;
