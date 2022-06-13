@@ -58,13 +58,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </div>
 <div class="card-container">
 <div class="card-item">
-<ul>
-{% for i in bwFeed.fiveStars %}
-<li>{{ i.title | safe}}</li>
-{% endfor %}
-</ul>
+<p>{{ bwFeed.fiveStars | safe}}</p>
 </div>
-<div class="card-item">The first episode was Episode 1!</div>
+<div class="card-item"><p><span class="card-hl">Mike's average</span> rating is <span class="card-hl">{{ bwFeed.mikeAvg | safe }}</span>/5.</p></div>
+<div class="card-item"><p><span class="card-hl">Joe's average</span> rating is <span class="card-hl">{{ bwFeed.joeAvg | safe }}</span>/5.</p></div>
 <div class="card-item">Another fun fact!</div>
 </div>
 </div>
