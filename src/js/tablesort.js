@@ -7,6 +7,7 @@
  */
 function sortTableByColumn(table, column, asc = true) {
     const dirModifier = asc ? 1 : -1;
+    // const dirModifier = asc ? -1 : 1;
     const tBody = table.tBodies[0];
     const rows = Array.from(tBody.querySelectorAll("tr"));
 
@@ -15,6 +16,13 @@ function sortTableByColumn(table, column, asc = true) {
         const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
         const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
 
+        // if (!isNaN(aColText)) {
+        //     return a - b;
+        // }
+        // return parseFloat(aColText) > parseFloat(bColText) ? (1 * dirModifier) : (-1 * dirModifier);
+        if (/^\d+$/.test(aColText)) {
+            return parseFloat(aColText) > parseFloat(bColText) ? (1 * dirModifier) : (-1 * dirModifier);
+        }
         return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
     });
 
@@ -28,14 +36,17 @@ function sortTableByColumn(table, column, asc = true) {
 
     // Remember how the column is currently sorted
     table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+    // table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", asc);
     table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-asc", asc);
     table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", !asc);
+    // table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-asc", !asc);
 }
 
 document.querySelectorAll(".table-sortable th").forEach(headerCell => {
     headerCell.addEventListener("click", () => {
         const tableElement = headerCell.parentElement.parentElement.parentElement;
         const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+        // const currentIsAscending = headerCell.classList.contains("th-sort-desc");
         const currentIsAscending = headerCell.classList.contains("th-sort-asc");
 
         sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
