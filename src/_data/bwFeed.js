@@ -115,7 +115,7 @@ module.exports = async function () {
             }
             if (current.rating) { ratingEps++; }
         }
-        return `Out of ${ratingEps} ratings, ${hs}${starEps} books${he} have been given a ${hs}double five star rating${he}. That's ${Math.floor(starEps / ratingEps * 100)}%!<br><br>The most recent one to be awarded full stars by both Mike and Joe was ${hs}${fiveStarBooks[fiveStarBooks.length - 1].title}${he}.`;
+        return `Out of ${ratingEps} ratings, ${hs}${starEps} books${he} have been given a ${hs}double five star rating${he}. That's ${Math.floor(starEps / ratingEps * 100)}%!<br><br>The most ${hs}recent book${he} to be awarded full stars by both Mike and Joe was ${hs}<a href="${fiveStarBooks[fiveStarBooks.length - 1].link}">${fiveStarBooks[fiveStarBooks.length - 1].no + ": " + fiveStarBooks[fiveStarBooks.length - 1].title}</a>${he}.`;
     }
     function raterAvg(episodes) {
         i = episodes.length;
@@ -144,6 +144,14 @@ module.exports = async function () {
         var joeAvg = joeRatingSum / ratingArr.length;
         mikeAvg = Math.round(mikeAvg*100) / 100;
         joeAvg = Math.round(joeAvg*100) / 100;
-    return [mikeAvg, joeAvg];
+    var hs = "<span class='card-hl'>"
+    var he = "</span>"
+    var mikeStr = `${hs}Mike's average rating${he} is ${hs + mikeAvg + he}/5.`;
+    mikeStr += "<br><br>";
+    mikeStr += `He gave ${hs}${mikeFives}${he} books ${hs}five stars${he}.`;
+    var joeStr = `${hs}Joe's average rating${he} is ${hs + joeAvg + he}/5.`;
+    joeStr += "<br><br>";
+    joeStr += `He gave ${hs}${joeFives + he} books ${hs}five stars${he}.`;
+    return [mikeStr, joeStr];
     }
 }
