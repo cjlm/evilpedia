@@ -7,21 +7,19 @@ description: "The index page of my website"
 <div class="aligning">
 <div class="header">
 
-<div class="icon-center-one">
-<i class="fa-solid fa-book-open-reader"></i>
 
 # {{ title }}
-</div>
 <div role="doc-subtitle">
-<a href="/sort-combined">Sort by combined</a>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus. Sit amet justo donec enim diam vulputate ut pharetra sit. In massa tempor nec feugiat nisl.
 </div>
 </div>
 
 <div class="sheet">
+<div class="icon-center-two">
 <i class="fa-solid fa-headphones"></i>
 
 ## Episodes
+</div>
 <table class="table-sortable">
 <thead>
 <tr>
@@ -39,7 +37,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 {% for i in bwFeed.episodes %}
 <tr>
 <td>{{i.no | safe}}</td>
-<td>
+<td class="link-cell">
 <a href="{{i.link}}">{{i.title | safe}}</a>
 </td>
 <td class="rating-cell"> 
