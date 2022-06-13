@@ -13,6 +13,10 @@
     $font-size-bigger: 18px;
     $font-size-h1: 3.375rem;
     $items-width: 80%;
+    $text-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+    $text-accent: "Georgia";
 // Mixins
 @mixin card($bg-color) {
     background-color: $bg-color;
@@ -23,15 +27,14 @@
     border-radius: 10px;
 }
 :root {
-    --text-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
-    --text-accent: "Georgia";
     --surface: #fff;
     --muted: #C0C2CE;
     --inverse-surface: black;
     --inverse-text: white;
     --surface-accent: #eee;
+}
+p {
+    font-family: $text-font;
 }
 .aligning,
 .sheet {
@@ -46,8 +49,8 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
     //border: .5px solid var(--dark-accent);
-    font-family: var(--text-font);
-    font-size: 14px;
+    font-family: $text-font;
+    font-size: $font-size-text;
     //width: 60%;
 }
 
@@ -211,7 +214,7 @@ body {
     gap: 20px;
 }
 .card-item {
-    @include card($secondary);
+    @include card(white);
     margin: 0px;
 }
 /* Responsive layout - makes a one column layout instead of a two-column layout */
@@ -241,7 +244,7 @@ body {
 }
 h1 {
     margin-bottom: 5px;
-    font-family: var(--text-accent);
+    font-family: $text-accent;
     font-size: $font-size-h1;
     line-height: 4rem;
     font-weight: 300;
@@ -267,4 +270,7 @@ h2 {
     margin-top: 30px;
     margin-bottom: 30px;
     width: 500px;
+}
+.card-hl {
+    font-weight: 600;
 }
