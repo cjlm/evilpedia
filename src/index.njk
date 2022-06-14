@@ -58,11 +58,13 @@ description: "The index page of my website"
         </div>
         <div class="card-item">
             <p>{{ bwFeed.mikeAvg | safe}}</p>
-        </div>
-        <div class="card-item">
-            <p>{{ bwFeed.joeAvg | safe}}</p>
-        </div>
-        <div class="card-item"><p>{{ bwFeed.biggestDiff | safe }}</p></div>
     </div>
-</div>
+        </div>
+        <div class="card-container">
+            <div class="card-item">
+                <p>{{ bwFeed.joeAvg | safe}}</p>
+            </div>
+            <div class="card-item"><p>{{ bwFeed.biggestDiff | safe }}</p></div>
+            </div>
+        </div>
 <script src="js/tablesort.js"></script>
