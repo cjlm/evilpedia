@@ -84,18 +84,10 @@ module.exports = async function () {
     // Populate episodes from array
     returnObj.episodes = epArr;
 
-    // Fun facts
-    // Double five star episodes
-    // var i = returnObj.episodes.length;
-    // var fiveStarEps = [];
-    // while (i--) {
-    //     if (epArr[i].ratingJoe == 5 && epArr[i].ratingMike == 5) {
-    //         fiveStarEps.push(epArr[i])
-    //     }
-    // }
     returnObj.fiveStars = fiveStarStr(returnObj.episodes);
     returnObj.mikeAvg = raterAvg(returnObj.episodes)[0];
     returnObj.joeAvg = raterAvg(returnObj.episodes)[1];
+    returnObj.biggestDiff = biggestDiff(returnObj.episodes);
     return returnObj;
 
     // Fact functions
@@ -153,5 +145,38 @@ module.exports = async function () {
     joeStr += "<br><br>";
     joeStr += `He gave ${hs}${joeFives + he} books ${hs}five stars${he}.`;
     return [mikeStr, joeStr];
+    }
+    function biggestDiff(episodes) {
+        var epArr = episodes.filter(ep => ep.rating);
+        console.log(epArr);
+
+        let maxDiff = Math.abs(epArr[0].ratingMike - epArr[0].ratingJoe);
+        let maxObj = epArr[0];
+        for (let i = 0; i < epArr.length; i++) {
+            const epObj = epArr[i];
+            const ratingMike = parseFloat(epObj.ratingMike);
+            const ratingJoe = parseFloat(epObj.ratingJoe);
+            var thisDiff = Math.abs(ratingMike - ratingJoe);
+        if (thisDiff > maxDiff) {
+            maxDiff = thisDiff;
+            maxObj = epObj;
+        }
+        }
+        switch (maxDiff) {
+            case 2:
+                maxDiff = "two";
+                break;
+            case 3:
+                maxDiff = "three";
+                break;
+            case 4:
+                maxDiff = "four";
+                break;
+            default:
+                break;
+        }
+        var hs = "<span class='card-hl'>"
+        var he = "</span>"
+        return `The ${hs}biggest difference${he} in rating is ${hs + maxDiff} stars${he} on episode ${maxObj.no}: <a href="${maxObj.link}">${maxObj.title}</a>.<br><br>Mike gave ${hs + maxObj.ratingMike} stars ${he} and Joe gave ${hs + maxObj.ratingJoe} stars ${he}.`;
     }
 }
