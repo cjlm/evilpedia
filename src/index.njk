@@ -52,19 +52,23 @@ description: "The index page of my website"
 
         </table>
     </div>
-    <div class="card-container">
-        <div class="card-item">
-            <p>{{ bwFeed.fiveStars | safe}}</p>
-        </div>
-        <div class="card-item">
-            <p>{{ bwFeed.mikeAvg | safe}}</p>
-    </div>
-        </div>
+    <div class="trivia">
+        <h2>Bookworm Trivia</h2>
+        <p role="doc-subtitle">Fun facts and trivia about the podcast.</p>
         <div class="card-container">
-            <div class="card-item">
+            <div class="card-item five-stars">
+                <p>{{ bwFeed.fiveStars | safe}}</p>
+            </div>
+            <div class="card-item mike-average">
+                <p>{{ bwFeed.mikeAvg | safe}}</p>
+            </div>
+            <div class="card-item joe-average">
                 <p>{{ bwFeed.joeAvg | safe}}</p>
             </div>
-            <div class="card-item"><p>{{ bwFeed.biggestDiff | safe }}</p></div>
+            <div class="card-item difference">
+                <p>{{ bwFeed.biggestDiff | safe }}</p>
             </div>
         </div>
+    </div>
+</div>
 <script src="js/tablesort.js"></script>
