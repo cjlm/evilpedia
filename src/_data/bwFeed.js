@@ -151,7 +151,6 @@ module.exports = async function () {
     }
     function biggestDiff(episodes) {
         var epArr = episodes.filter(ep => ep.rating);
-        console.log(epArr);
 
         let maxDiff = Math.abs(epArr[0].ratingMike - epArr[0].ratingJoe);
         let maxObj = epArr[0];
