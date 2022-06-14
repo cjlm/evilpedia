@@ -5,65 +5,66 @@ description: "The index page of my website"
 ---
 
 <div class="aligning">
-<div class="header">
+    <div class="header">
 
-
-<h1>{{ title }}</h1>
-<div role="doc-subtitle">
+        <h1>{{ title }}</h1>
+        <div role="doc-subtitle">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique magna sit amet purus. Sit amet justo donec enim diam vulputate ut pharetra sit. In massa tempor nec feugiat nisl.
 </div>
-</div>
+    </div>
 
-<div class="sheet">
-<div class="icon-center-two">
-<i class="fa-solid fa-headphones"></i>
+    <div class="sheet">
+        <div class="icon-center-two">
+            <i class="fa-solid fa-headphones"></i>
 
-<h2>Episodes</h2>
-</div>
-<table class="table-sortable">
-<thead>
-<tr>
-<th>No</th>
-<th>Title</th>
-<th>Mike's Rating</th>
-<th>Joe's Rating</th>
-<th>Combined</th>
-</tr>
-</thead>
+            <h2>Episodes</h2>
+        </div>
+        <table class="table-sortable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Title</th>
+                    <th>Mike's Rating</th>
+                    <th>Joe's Rating</th>
+                    <th>Combined</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                {% block tbody %}
+                    {% for i in bwFeed.episodes %}
+                        <tr>
+                            <td>{{i.no | safe}}</td>
+                            <td class="link-cell">
+                                <a href="{{i.link}}">{{i.title | safe}}</a>
+                            </td>
+                            <td class="rating-cell">
+                                <span class="rating-no">{{i.ratingMike}}</span>
+                                <span class ="rating-stars">{{i.starsMike | safe}}</span>
+                            </td>
+                            <td class="rating-cell">
+                                <span class="rating-no">{{i.ratingJoe}}</span>
+                                <span class ="rating-stars">{{i.starsJoe | safe}}</span>
+                            </td>
+                            <td>{{i.ratingAve}}</td>
+                        </tr>
+                    {% endfor %}
+                {% endblock %}
+            </tbody>
 
-<tbody>
-{% block tbody %}
-{% for i in bwFeed.episodes %}
-<tr>
-<td>{{i.no | safe}}</td>
-<td class="link-cell">
-<a href="{{i.link}}">{{i.title | safe}}</a>
-</td>
-<td class="rating-cell"> 
-<span class="rating-no">{{i.ratingMike}}</span>
-<span class ="rating-stars">{{i.starsMike | safe}}</span>
-</td>
-<td class="rating-cell">
-<span class="rating-no">{{i.ratingJoe}}</span>
-<span class ="rating-stars">{{i.starsJoe | safe}}</span>
-</td>
-<td>{{i.ratingAve}}</td>
-</tr>
-{% endfor %}
-{% endblock %}
-</tbody>
-
-</table>
+        </table>
+    </div>
+    <div class="card-container">
+        <div class="card-item">
+            <p>{{ bwFeed.fiveStars | safe}}</p>
+        </div>
+        <div class="card-item">
+            <p>{{ bwFeed.mikeAvg | safe}}</p>
+        </div>
+        <div class="card-item">
+            <p>{{ bwFeed.joeAvg | safe}}</p>
+        </div>
+        <div class="card-item">Another fun fact!</div>
+    </div>
 </div>
-<div class="card-container">
-<div class="card-item">
-<p>{{ bwFeed.fiveStars | safe}}</p>
-</div>
-<div class="card-item"><p>{{ bwFeed.mikeAvg | safe}}</p></div>
-<div class="card-item"><p>{{ bwFeed.joeAvg | safe}}</p></div>
-<div class="card-item">Another fun fact!</div>
-</div>
-</div>
-<script src="js/tablesort.js">
-</script>
+<script src="js/tablesort.js"></script>
