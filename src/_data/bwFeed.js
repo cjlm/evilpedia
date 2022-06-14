@@ -107,7 +107,10 @@ module.exports = async function () {
             }
             if (current.rating) { ratingEps++; }
         }
-        return `Out of ${ratingEps} ratings, ${hs}${starEps} books${he} have been given a ${hs}double five star rating${he}. That's ${Math.floor(starEps / ratingEps * 100)}%!<br><br>The most ${hs}recent book${he} to be awarded full stars by both Mike and Joe was ${hs}<a href="${fiveStarBooks[fiveStarBooks.length - 1].link}">${fiveStarBooks[fiveStarBooks.length - 1].no + ": " + fiveStarBooks[fiveStarBooks.length - 1].title}</a>${he}.`;
+        const fiveStarBook = fiveStarBooks[fiveStarBooks.length - 1];
+        var fiveStarAgo = episodes.length - fiveStarBook.no;
+        if (fiveStarAgo == 0) {fiveStarAgo = "last episode."} else { fiveStarAgo = `${fiveStarAgo} episodes ago.`}
+        return `Out of ${ratingEps} ratings, ${hs}${starEps} books${he} have been given a ${hs}double five stars${he}. That's ${Math.floor(starEps / ratingEps * 100)}%, or every ${hs + Math.round(ratingEps/starEps)}th book ${he}on average!<br><br>The most ${hs}recent book${he} to be awarded full stars by both Mike and Joe was ${hs}<a href="${fiveStarBook.link}">${fiveStarBook.no + ": " + fiveStarBook.title}</a>${he}, ${fiveStarAgo}`;
     }
     function raterAvg(episodes) {
         i = episodes.length;
@@ -152,6 +155,7 @@ module.exports = async function () {
 
         let maxDiff = Math.abs(epArr[0].ratingMike - epArr[0].ratingJoe);
         let maxObj = epArr[0];
+        let samesies = 0;
         for (let i = 0; i < epArr.length; i++) {
             const epObj = epArr[i];
             const ratingMike = parseFloat(epObj.ratingMike);
@@ -161,6 +165,7 @@ module.exports = async function () {
             maxDiff = thisDiff;
             maxObj = epObj;
         }
+        if(ratingMike == ratingJoe) { samesies++ }
         }
         switch (maxDiff) {
             case 2:
@@ -177,6 +182,6 @@ module.exports = async function () {
         }
         var hs = "<span class='card-hl'>"
         var he = "</span>"
-        return `The ${hs}biggest difference${he} in rating is ${hs + maxDiff} stars${he} on episode ${maxObj.no}: <a href="${maxObj.link}">${maxObj.title}</a>.<br><br>Mike gave ${hs + maxObj.ratingMike} stars ${he} and Joe gave ${hs + maxObj.ratingJoe} stars ${he}.`;
+        return `The ${hs}biggest difference${he} in rating is ${hs + maxDiff} stars${he} on episode ${maxObj.no}: <a href="${maxObj.link}">${maxObj.title}</a>. Mike gave ${hs + maxObj.ratingMike} stars ${he} and Joe gave ${hs + maxObj.ratingJoe} stars${he}.<br><br>Both gave the ${hs}same rating${he} on ${hs + samesies} books${he}. That's ${Math.round(samesies / epArr.length * 100)}% of episodes with ratings.`;
     }
 }
