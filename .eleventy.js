@@ -3,12 +3,12 @@
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/js/tablesort.js");
     eleventyConfig.setBrowserSyncConfig({
-        files: './public/css/**/*.css'
+        files: './_site/css/**/*.css'
     });
     return {
         dir: {
             input: "src",
-            output: "public"
+            output: "_site"
         },
         templateFormats: ['md', 'njk', 'html'],
         markdownTemplateEngine: 'njk',
