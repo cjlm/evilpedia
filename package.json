@@ -12,6 +12,7 @@
   "author": "Joschua",
   "license": "ISC",
   "dependencies": {
+    "eleventy-favicon": "^1.1.3",
     "rss-to-json": "^2.0.2",
     "sass": "^1.52.3"
   },
