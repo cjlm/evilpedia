@@ -8,7 +8,7 @@ description: "About this page"
 
 # About
 ## The podcast
-[Bookworm](https://bookworm.fm/) is an excellent podcast that is dedicated to "doing more than just reading books". It is hosted by [Joe Buhlig](https://twitter.com/joebuhlig) and [Mike Schmitz](https://twitter.com/_MikeSchmitz). Every two weeks Mike and Joe discuss a new book, it's takeaways and action items.
+[Bookworm](https://bookworm.fm/) is an excellent podcast that is dedicated to "doing more than just reading books". It is hosted by [Joe Buhlig](https://twitter.com/joebuhlig) and [Mike Schmitz](https://twitter.com/_MikeSchmitz). Every two weeks Mike and Joe discuss a new book, its takeaways and action items.
 <br><br>
 The first episode was released on July 7, 2016. So far, an impressive {{ bwFeed.episodes | length}} episodes have been released. You can subscribe to the podcast on the [Bookworm website](https://bookworm.fm).
 
