@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <script src="https://kit.fontawesome.com/913bcc60e8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="aligning">
+   <header>
+    <div class="menu-links">
+        <a class="logo" href="/">
+            {# <i class="fa-solid fa-book"></i> Bookworm stats
+            <i class="fa-solid fa-glasses"></i> Bookworm stats
+            <i class="fa-solid fa-medal"></i> Bookworm stats #}
+            <i class="fa-solid fa-book"></i> <i class="fa-solid fa-chart-simple"></i>
+            {# <i class="fa-solid fa-chart-simple"></i> Bookworm stats #}
+        </a>
+        <a href="/#episodes" class="menu-episodes">Episodes</a>
+        <a href="/#trivia" class="menu-trivia">Trivia</a>
+        <a class="about" href="/about">About</a>
+    </div>
+   </header>
+   {{ content | safe }} 
+    </div>
+</body>
+<footer>
+    <div class="footer-container">
+        <div class="project">
+            <h3>Project</h3>
+            <p>
+                Made with <i class="fa-regular fa-heart"></i> by <a href="https://twitter.com/selfire1">Joschua</a>.
+            </p>
+            <p>
+                Find the source code on <i class="fa-regular"></i><a href="https://github.com/selfire1/bookworm-stats">Github</a>.
+            </p>
+            <p>
+                <a href="https://www.11ty.dev/">#BuiltWithEleventy</a>
+            </p>
+        </div>
+        <div class="podcast">
+            <h3>Podcast</h3>
+            <p><a href="https://bookworm.fm/">Bookworm Website</a></p>
+            <p><a href="https://twitter.com/joebuhlig">Joe Buhlig</a></p>
+            <p><a href="https://twitter.com/_MikeSchmitz">Mike Schmitz</a></p>
+        </div>
+    </div>
+</footer>
+</html>

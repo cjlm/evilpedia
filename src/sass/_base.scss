@@ -1,77 +1,101 @@
 // Variables
 // Colors from https://access.mymind.com/colors
-    $primary:#5C457B;
-    $secondary:#FF7D39;
-    $muted:lighten($secondary, 36%);
+$primary: #5c457b;
+$secondary: #ff7d39;
+$muted: lighten($secondary, 36%);
+$grey: grey;
 
-    $primary-light: lighten($primary, 50%);
-    $primary-faint: lighten($primary, 55%);
-    $secondary-light: lighten($secondary, 20%);
-    $muted-light: lighten($muted, 1%);
+$primary-light: lighten($primary, 50%);
+$primary-faint: lighten($primary, 55%);
+$secondary-light: lighten($secondary, 20%);
+$muted-light: lighten($muted, 1%);
 
-    $font-size-text: 1rem;
-    $font-size-bigger: 18px;
-    $font-size-smaller: 14px;
-    $font-size-h1: 3.375rem;
-    $subtitle-size: 1rem;
-    $items-width: 1200px;
-    $text-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
-    $text-accent: "Georgia";
-    $surface: white;
+$font-size-text: 1rem;
+$font-size-bigger: 18px;
+$font-size-smaller: 14px;
+$font-size-h1: 3.375rem;
+$subtitle-size: 1rem;
+$items-width: 1200px;
+$text-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Microsoft YaHei Light", sans-serif;
+$text-accent: "Georgia";
+$surface: white;
 // Mixins
 @mixin card($bg-color) {
-    background-color: $bg-color;
-    margin: 10px;
-    padding: 10px 20px;
-    box-shadow: -10px -10px 30px rgba(255,255,255,0.05), 10px 10px 30px rgba(0,0,0,0.2);
-    border: 1px solid $bg-color;
-    border-radius: 10px;
+  background-color: $bg-color;
+  margin: 10px;
+  padding: 10px 20px;
+  box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05),
+    10px 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid $bg-color;
+  border-radius: 10px;
 }
 :root {
-    --muted: #C0C2CE;
-    --inverse-surface: black;
-    --inverse-text: white;
-    --surface-accent: #eee;
+  --muted: #c0c2ce;
+  --inverse-surface: black;
+  --inverse-text: white;
+  --surface-accent: #eee;
+}
+html {
+  scroll-padding-top: 50px;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.aligning {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  padding: 20px;
 }
 p {
-    font-size: $font-size-text;
-    font-family: $text-font;
+  font-size: $font-size-text;
+  font-family: $text-font;
 }
 .aligning,
 .sheet {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.aligning {
+  justify-content: flex-start;
 }
 // Tables
 table {
-    width: 100%;
-    margin: 10px;
-    border-spacing: 0;
-    border-collapse: collapse;
-    font-family: $text-font;
-    font-size: $font-size-text;
-    //width: 60%;
+  width: 100%;
+  margin: 10px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-family: $text-font;
+  font-size: $font-size-text;
+  //width: 60%;
 }
 
 td,
 th {
-    border-bottom: 1px solid $primary-light;
-    padding: 10px;
-    text-align: left;
-    margin: 0;
+  border-bottom: 1px solid $primary-light;
+  padding: 10px;
+  text-align: left;
+  margin: 0;
 }
 tr {
-    background-color: $surface;
-    &:last-of-type > td {
-        border-width: 0;
-    }
+  background-color: $surface;
+  &:last-of-type > td {
+    border-width: 0;
+  }
 }
 .rating-cell {
-    min-width: 130px;
+  min-width: 130px;
 }
 .table-sortable th {
   cursor: pointer;
@@ -95,19 +119,39 @@ tr {
   background: $primary-faint;
 }
 header {
-    // height: 30px;
+  width: 100%;
+  display: flex;
+  z-index: 2;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  .menu-links {
+    background: $primary;
     display: flex;
-    background-color: $muted-light;
-    padding: 10px 20px;
-    border-bottom: 1px dashed $secondary;
     font-family: $text-font;
     font-size: $font-size-text;
     justify-content: center;
-    gap: 15px;
-    a {
-        text-decoration: none;
-        color: gray;
+    max-width: $items-width;
+    width: 80%;
+    gap: 25px;
+    padding: 0 30px;
+    border-radius: 10px;
+    .about {
+      margin-left: auto;
     }
+  }
+  padding: 10px 0;
+  .logo {
+    color: $surface;
+  }
+  a {
+    &:hover {
+      color: $secondary-light;
+    }
+    text-decoration: none;
+    padding: 10px 0;
+    color: $primary-light;
+  }
 }
 // [data-tooltip] {
 //   position: relative;
@@ -121,7 +165,7 @@ header {
 // [data-tooltip]:before {
 //   content: attr(data-tooltip);
 //   position: absolute;
-//   opacity: 0; 
+//   opacity: 0;
 //   width: 150px;
 //   transform:translateX(-50%);
 //   bottom: 25px;
@@ -135,208 +179,257 @@ header {
 // [data-tooltip]:after {
 //   content: "";
 //   position: absolute;
-//   opacity: 0; 
-//   bottom: 15px;  
-//   margin-left: -5px; 
+//   opacity: 0;
+//   bottom: 15px;
+//   margin-left: -5px;
 //   border: 5px solid black;
 //   border-color: black transparent transparent transparent;
 //   transition:0.2s;
 // }
 // [data-tooltip]:hover:before,
 // [data-tooltip]:hover:after {
-//   opacity: 1; 
+//   opacity: 1;
 // }
 // .tooltip {
 //     display: none;
-// } 
+// }
 .link-cell {
- font-weight: 600;
- a {
+  font-weight: 600;
+  a {
     text-decoration: none;
- }
+  }
 }
 @mixin animateFade {
-    animation: fadein .5s;
+  animation: fadein 0.5s;
 }
 .rating-no {
-    display: none;
-    opacity: 0;
-    @include animateFade();
+  display: none;
+  opacity: 0;
+  @include animateFade();
 }
 .rating-stars {
-    opacity: .9;
-    @include animateFade();
+  opacity: 0.9;
+  @include animateFade();
 }
-tbody tr:hover { 
-    background-color: $muted-light;
-    .rating-no {
+tbody tr:hover {
+  background-color: $muted-light;
+  .rating-no {
     display: inline-block;
     opacity: 1;
     @include animateFade();
-    }
-    .rating-stars {
-        display: none;
-        opacity: 0;
-        @include animateFade();
-    }
-} 
+  }
+  .rating-stars {
+    display: none;
+    opacity: 0;
+    @include animateFade();
+  }
+}
 @keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 thead {
-    border-width: 2px;
-    z-index: 1;
-    position: sticky;
-    top: 0;
-    background-color: $surface;
-    color: $primary;
-    th:hover {
-        background-color: $muted-light;
-    }
+  border-width: 2px;
+  z-index: 1;
+  position: sticky;
+  top: 60px;
+  background-color: $surface;
+  color: $primary;
+  th:hover {
+    background-color: $muted-light;
+  }
 }
 @mixin icon-center($icon-size) {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    & > .fa-solid {
-        font-size: $icon-size;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > .fa-solid {
+    font-size: $icon-size;
+  }
 }
 
 @mixin sheet {
-    max-width: $items-width;
-    width: 80%;
-    background-color: $surface;
-    margin: 10px;
-    padding: 10px 30px;
-    box-shadow: -10px -10px 30px rgba(255,255,255,0.05), 10px 10px 30px rgba(0,0,0,0.2);
-    border: 1px solid $surface;
-    border-radius: 10px;
+  max-width: $items-width;
+  width: 80%;
+  background-color: $surface;
+  margin: 10px;
+  padding: 10px 30px;
+  box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05),
+    10px 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid $surface;
+  border-radius: 10px;
 }
 .sheet {
-@include sheet();
+  @include sheet();
 }
 a {
-    color: $primary;
-    &:hover {
-        color: $secondary;
-    }
+  color: $primary;
+  &:hover {
+    color: $secondary;
+  }
 }
 
 body {
-    background-color: $muted;
+  background-color: $muted;
 }
 .fa-star,
 .fa-star-half {
-    color: $primary;
+  color: $primary;
 }
 .trivia {
-    @include sheet();
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    padding-bottom: 30px;
-    h2 {
-        color: $secondary;
-    }
+  @include sheet();
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding-bottom: 30px;
+  h2 {
+    color: $secondary;
+  }
 }
 .card-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    margin-top: 20px;
-    gap: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-top: 20px;
+  gap: 20px;
 }
 .card-item {
-    @include card(white);
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    box-shadow: none;
-    background-color: $muted-light;
-    border-radius: 8px;
-    border: 1px solid $secondary-light;
-    margin: 0px;
-    p {
-        // color: $primary;
-        font-size: $font-size-text;
-    }
+  @include card(white);
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  box-shadow: none;
+  background-color: $muted-light;
+  border-radius: 8px;
+  border: 1px solid $secondary-light;
+  margin: 0px;
+  p {
+    // color: $primary;
+    font-size: $font-size-text;
+  }
 }
-    .five-stars,
-    .difference {
-        flex-basis: 65%;
-    }
-    .mike-average,
-    .joe-average {
-        flex-basis: calc(35% - 20px);
-    }
+.five-stars,
+.difference {
+  flex-basis: 65%;
+}
+.mike-average,
+.joe-average {
+  flex-basis: calc(35% - 20px);
+}
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
-    .card-container {
-        flex-direction: column;
-    }
-    .sheet,
-    .card-container {
-        width: 90%;
-    }
+  .card-container {
+    flex-direction: column;
+  }
+  .sheet,
+  .card-container {
+    width: 90%;
+  }
 }
 // Fonts
 // .icon-center-one {
-//    @include icon-center(2rem); 
+//    @include icon-center(2rem);
 //     i {
 //         color: $secondary-light;
 //         // opacity: .5;
 //     }
 // }
 .icon-center-two {
-   @include icon-center(1rem); 
-   padding-top: 10px;
-   h2 {
+  @include icon-center(1rem);
+  padding-top: 10px;
+  h2 {
     margin-top: 6px;
-   }
+  }
 }
 h1 {
-    margin-bottom: 5px;
-    font-family: $text-accent;
-    font-size: $font-size-h1;
-    line-height: 4rem;
-    font-weight: 300;
-    letter-spacing: 0;
-    text-align: center;
-    color: $secondary;
+  margin-bottom: 5px;
+  font-family: $text-accent;
+  font-size: $font-size-h1;
+  line-height: 4rem;
+  font-weight: 300;
+  letter-spacing: 0;
+  text-align: center;
+  color: $secondary;
 }
 h2 {
-    line-height: 40px;
-    font-size: 32px;
-    font-weight: 400;
-    color: $primary;
-    margin-top: 15px;
+  line-height: 40px;
+  font-size: 32px;
+  font-weight: 400;
+  color: $primary;
+  margin-top: 15px;
 }
 [role="h2-subtitle"] {
-    text-align: center;
-    font-family: $text-font;
-    line-height: 22px;
-    font-size: $font-size-smaller;
-    padding: 5px 0;
-    // font-weight: 400;
+  text-align: center;
+  font-family: $text-font;
+  line-height: 22px;
+  font-size: $font-size-smaller;
+  padding: 5px 0;
+  // font-weight: 400;
 }
 [role="doc-subtitle"] {
-    text-align: center;
-    font-family: $text-font;
-    line-height: 24px;
-    size: $subtitle-size;
-    font-weight: 400;
+  text-align: center;
+  font-family: $text-font;
+  line-height: 24px;
+  size: $subtitle-size;
+  font-weight: 400;
 }
 .header {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 500px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 500px;
 }
 .card-hl {
-    font-weight: 600;
+  font-weight: 600;
+}
+.about-page {
+  @include sheet();
+  .about-text {
+    padding: 0 50px;
+    padding-bottom: 20px;
+  }
+}
+footer {
+  margin-top: 70px;
+  background-color: $primary-faint;
+  display: flex;
+  justify-content: center;
+  p,
+  a {
+    font-size: $font-size-smaller;
+    font-family: $text-font;
+    text-align: center;
+    color: $grey;
+    i {
+      color: $secondary;
+    }
+  }
+  a {
+    text-decoration: underline dotted $grey;
+  }
+  p {
+    line-height: 24px;
+  }
+  h3 {
+    font-family: $text-accent;
+    font-size: $font-size-smaller;
+    color: darken($grey,10%);
+    text-align: center;
+  }
+  .podcast p {
+    text-align: left;
+  }
+  .footer-container {
+    padding: 30px 0;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+  }
 }
