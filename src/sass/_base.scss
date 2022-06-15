@@ -11,8 +11,8 @@ $secondary-light: lighten($secondary, 20%);
 $muted-light: lighten($muted, 1%);
 
 $font-size-text: 1rem;
-$font-size-bigger: 18px;
-$font-size-smaller: 14px;
+$font-size-bigger: 1.125rem;
+$font-size-smaller: .875rem;
 $font-size-h1: 3.375rem;
 $subtitle-size: 1rem;
 $items-width: 1200px;
@@ -80,7 +80,12 @@ table {
   font-size: $font-size-text;
   //width: 60%;
 }
-
+.combined-desktop {
+  display: block;
+}
+.combined-mobile {
+  display: none;
+}
 td,
 th {
   border-bottom: 1px solid $primary-light;
@@ -310,10 +315,6 @@ body {
   border-radius: 8px;
   border: 1px solid $secondary-light;
   margin: 0px;
-  p {
-    // color: $primary;
-    font-size: $font-size-text;
-  }
 }
 .five-stars,
 .difference {
@@ -432,4 +433,104 @@ footer {
     align-items: flex-start;
     display: flex;
   }
+}
+
+@media screen and (max-width: 430px) {
+  // .sheet {
+  //   width: 100%;
+  // }
+  h1 {
+    font-size: 2.8rem;
+    line-height: 2.6rem;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: .8rem;
+  }
+  footer p,
+  footer a {
+    font-size: .6875rem;
+    line-height: 18px;
+  }
+  footer .footer-container {
+    gap: 10px;
+  }
+
+  header {
+    width: 100%;
+    .menu-links{
+      width: 100%;
+      gap: 10px;
+      padding: 0 15px;
+    }
+  a {
+    font-size: 0.8rem;
+  }
+  }
+  .card-container {
+      flex-direction: row;
+      gap: 10px;
+    .five-stars,
+    .difference {
+      flex-basis: 100%;
+    }
+    .mike-average,
+    .joe-average {
+      flex-basis: calc(50% - 5px);
+    }
+  }
+  .sheet,
+  .trivia,
+  .header {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .about-page {
+    width: 100%;
+    padding: 10px 15px;
+    .about-text {
+      padding: 0;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+  .trivia{
+    padding-bottom: 20px;
+  }
+.rating-stars {
+  display: none;
+  opacity: 0;
+  &:hover {
+    display: none;
+  opacity: 0;
+  }
+}
+.rating-no {
+  opacity: 1;
+  display: block;
+  &:hover {
+    opacity: 1;
+    display: block;
+  }
+}
+table {
+  font-size: .6rem;
+  td,
+  th {
+    padding: 5px;
+  }
+  .combined-desktop {
+    display: none;
+  }
+  .combined-mobile {
+    display: block;
+  }
+}
+.rating-cell {
+  min-width: 0;
+}
 }
