@@ -1,6 +1,6 @@
 // Variables
 // Colors from https://access.mymind.com/colors
-$primary: #5c457b;
+$primary: rgb(92, 69, 123);
 $secondary: #ff7d39;
 $muted: lighten($secondary, 36%);
 $grey: grey;
@@ -308,6 +308,7 @@ body {
   @include card(white);
   text-align: center;
   justify-content: center;
+  flex-direction: column;
   display: flex;
   align-items: center;
   box-shadow: none;
@@ -315,6 +316,12 @@ body {
   border-radius: 8px;
   border: 1px solid $secondary-light;
   margin: 0px;
+  i {
+    font-size: 22px;
+    color: $secondary;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
 }
 .five-stars,
 .difference {
