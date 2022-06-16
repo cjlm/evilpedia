@@ -17,9 +17,9 @@ Hi! I'm Joschua. Loving to read, I am a big fan of the Bookworm podcast. It's a 
 <br><br>
 However, when looking for book recommendations, I don't have the time to listen through all episodes of the podcast. So I set about creating a website that lists all ratings to scan to inform my next read. I hope it is helpful to you too!
 <br><br>
-This is the first website that I've written! It is built with [Eleventy](https://www.11ty.dev/), a static site generator. If you want to learn more about it, you can find some notes and links on my [digital garden](https://joschuasgarden.com/00+Meta/04+Tools/Eleventy). The source code is available on [Github](https://github.com/selfire1/bookworm-stats).
+This is the first website that I've written! It is built with [Eleventy](https://www.11ty.dev/), a static site generator. If you want to learn more about it, you can find some notes and links on my [digital garden](https://joschuasgarden.com/00+Meta/04+Tools/Eleventy). The source code is available on [Github](https://github.com/selfire1/bookworm-stats). Feel free to raise an [issue](https://github.com/selfire1/bookworm-stats/issues) if you notive anything out of order.
 <br><br>
-I stole the colours from Tobias Van Schneider's [curated color palletes](https://access.mymind.com/colors). It's number 87, "In the vines", in case you were wondering. The beautiful CSS shadow were generated using [SmoothShadows](https://shadows.brumm.af/). The icons are from [Font Awesome](https://fontawesome.com/).
+I stole the colours from Tobias Van Schneider's [curated color palletes](https://access.mymind.com/colors). It's number 87, "In the vines", in case you were wondering. The beautiful CSS shadow were generated using [SmoothShadows](https://shadows.brumm.af/). The icons are from [Font Awesome](https://fontawesome.com/). The site is hosted on [Cloudflare Pages](https://pages.cloudflare.com/). Anytime there is a new item in the Bookworm feed, [IFTTT](https://ifttt.com/) triggers a deployment hook to Cloudflare to build the site.
 <br><br>
 If you want to follow along on what I am creating, feel free to connect on [Twitter](https://twitter.com/selfire1).
 </div>
