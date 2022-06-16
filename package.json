@@ -6,7 +6,8 @@
   "scripts": {
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "watch:sass": "npx sass src/sass:_site/css --no-source-map --watch",
-    "start": "npm run watch:eleventy & npm run watch:sass"
+    "start": "npm run watch:eleventy & npm run watch:sass",
+    "build": "npx sass src/sass:_site/css --no-source-map & npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "Joschua",
