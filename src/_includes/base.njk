@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title>{{ title }}</title>
-      {% favicon './favicon.svg' %}
-    <meta name="description" content="{{ description }}">
-    <script src="https://kit.fontawesome.com/913bcc60e8.js" crossorigin="anonymous"></script>
-</head>
-<body>
-<div class="aligning">
-   <header>
-    <div class="menu-links">
-        <a class="logo" href="/">
-            {# <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.495 2h16.505v-2h-17c-1.656 0-3 1.343-3 3v18c0 1.657 1.344 3 3 3h17v-20h-16.505c-1.376 0-1.376-2 0-2zm.505 4h7v7l2-2 2 2v-7h3v16h-14v-16z"/></svg> #}
-            {# <i class="fa-solid fa-book"></i> <i class="fa-solid fa-chart-simple"></i> #}
-            <i class="fa-solid fa-book"></i> <i class="fa-solid fa-list-ol"></i>
-        </a>
-        <a href="/#episodes" class="menu-episodes">Episodes</a>
-        <a href="/#trivia" class="menu-trivia">Trivia</a>
-        <a class="about" href="/about">About</a>
-    </div>
-   </header>
-   {{ content | safe }} 
-    </div>
-</body>
-<footer>
-    <div class="footer-container">
-        <div class="project">
-            <h3>Project</h3>
-            <p>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <title>{{ title }}</title>
+        {% favicon './favicon.svg' %}
+        <meta name="description" content="{{ description }}">
+        <script src="https://kit.fontawesome.com/913bcc60e8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="aligning">
+            <header>
+                <div class="menu-links">
+                    <a class="logo" href="/">
+                        {# <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.495 2h16.505v-2h-17c-1.656 0-3 1.343-3 3v18c0 1.657 1.344 3 3 3h17v-20h-16.505c-1.376 0-1.376-2 0-2zm.505 4h7v7l2-2 2 2v-7h3v16h-14v-16z"/></svg> #}
+                        {# <i class="fa-solid fa-book"></i> <i class="fa-solid fa-chart-simple"></i> #}
+                        <i class="fa-solid fa-book"></i>
+                        <i class="fa-solid fa-list-ol"></i>
+                    </a>
+                    <a href="/#episodes" class="menu-episodes">Episodes</a>
+                    <a href="/#trivia" class="menu-trivia">Trivia</a>
+                    <a class="about" href="/about">About</a>
+                </div>
+            </header>
+            {{ content | safe }}
+        </div>
+    </body>
+    <footer>
+        <div class="footer-container">
+            <div class="project">
+                <h3>Project</h3>
+                <p>
                 Made with <i class="fa-regular fa-heart"></i> by <a href="https://twitter.com/selfire1">Joschua</a>.
             </p>
-            <p>
-                Find the source code on <i class="fa-regular"></i><a href="https://github.com/selfire1/bookworm-stats">Github</a>.
+                <p>
+                Find the source code on <i class="fa-regular"></i>
+                    <a href="https://github.com/selfire1/bookworm-stats">Github</a>.
             </p>
-            <p>
-                <a href="https://www.11ty.dev/">#BuiltWithEleventy</a>
-            </p>
+                <p>
+                    <a href="https://www.11ty.dev/">#BuiltWithEleventy</a>
+                </p>
+            </div>
+            <div class="podcast">
+                <h3>Podcast</h3>
+                <p>
+                    <a href="https://bookworm.fm/">Bookworm Website</a>
+                </p>
+                <p>
+                    <a href="https://twitter.com/joebuhlig">Joe Buhlig</a>
+                </p>
+                <p>
+                    <a href="https://twitter.com/_MikeSchmitz">Mike Schmitz</a>
+                </p>
+            </div>
         </div>
-        <div class="podcast">
-            <h3>Podcast</h3>
-            <p><a href="https://bookworm.fm/">Bookworm Website</a></p>
-            <p><a href="https://twitter.com/joebuhlig">Joe Buhlig</a></p>
-            <p><a href="https://twitter.com/_MikeSchmitz">Mike Schmitz</a></p>
-        </div>
-    </div>
-</footer>
+            <div class="date">
+                <p>Updated last: 
+                    <script>
+                        var d = new Date(); var str = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`
+                        document.write(str);
+                    </script>
+                </p>
+            </div>
+    </footer>
 </html>
