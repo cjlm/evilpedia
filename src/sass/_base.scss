@@ -22,12 +22,21 @@ $text-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
 $text-accent: "Georgia";
 $surface: white;
 // Mixins
+@mixin shadow-h(){
+box-shadow:
+  3.8px 3.8px 10px rgba(0, 0, 0, 0.06),
+  30px 30px 80px rgba(0, 0, 0, 0.12)
+;
+}
+@mixin shadow(){
+    box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05),
+    10px 10px 30px rgba(0, 0, 0, 0.2);
+}
 @mixin card($bg-color) {
   background-color: $bg-color;
   margin: 10px;
   padding: 10px 20px;
-  box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05),
-    10px 10px 30px rgba(0, 0, 0, 0.2);
+  @include shadow();
   border: 1px solid $bg-color;
   border-radius: 10px;
 }
@@ -78,7 +87,6 @@ table {
   border-collapse: collapse;
   font-family: $text-font;
   font-size: $font-size-text;
-  //width: 60%;
 }
 .combined-desktop {
   display: block;
@@ -131,6 +139,7 @@ header {
   position: sticky;
   top: 0;
   .menu-links {
+    @include shadow-h();
     background: $primary;
     display: flex;
     font-family: $text-font;
@@ -158,46 +167,6 @@ header {
     color: $primary-light;
   }
 }
-// [data-tooltip] {
-//   position: relative;
-//   cursor: pointer;
-//   background: black;
-//   color: white;
-//   font-size: 12px;
-//   border-radius: 1em;
-//   padding: 0 0.5em;
-// }
-// [data-tooltip]:before {
-//   content: attr(data-tooltip);
-//   position: absolute;
-//   opacity: 0;
-//   width: 150px;
-//   transform:translateX(-50%);
-//   bottom: 25px;
-//   padding: 0.5em;
-//   background-color: black;
-//   border-radius: 0.25em;
-//   color: white;
-//   text-align: center;
-//   transition:0.2s;
-// }
-// [data-tooltip]:after {
-//   content: "";
-//   position: absolute;
-//   opacity: 0;
-//   bottom: 15px;
-//   margin-left: -5px;
-//   border: 5px solid black;
-//   border-color: black transparent transparent transparent;
-//   transition:0.2s;
-// }
-// [data-tooltip]:hover:before,
-// [data-tooltip]:hover:after {
-//   opacity: 1;
-// }
-// .tooltip {
-//     display: none;
-// }
 .link-cell {
   font-weight: 600;
   a {
@@ -263,8 +232,7 @@ thead {
   background-color: $surface;
   margin: 10px;
   padding: 10px 30px;
-  box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05),
-    10px 10px 30px rgba(0, 0, 0, 0.2);
+  @include shadow();
   border: 1px solid $surface;
   border-radius: 10px;
 }
@@ -350,14 +318,6 @@ h2 {
     width: 90%;
   }
 }
-// Fonts
-// .icon-center-one {
-//    @include icon-center(2rem);
-//     i {
-//         color: $secondary-light;
-//         // opacity: .5;
-//     }
-// }
 .icon-center-two {
   @include icon-center(1rem);
   padding-top: 10px;
@@ -388,7 +348,6 @@ h2 {
   line-height: 22px;
   font-size: $font-size-smaller;
   padding: 5px 0;
-  // font-weight: 400;
 }
 [role="doc-subtitle"] {
   text-align: center;
@@ -455,9 +414,6 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-  // .sheet {
-  //   width: 100%;
-  // }
   h1 {
     font-size: 2.8rem;
     line-height: 2.6rem;
