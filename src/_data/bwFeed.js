@@ -181,6 +181,6 @@ module.exports = async function () {
         }
         var hs = "<span class='card-hl'>"
         var he = "</span>"
-        return `The ${hs}biggest difference${he} in rating is ${hs + maxDiff} stars${he} on episode ${maxObj.no}: <a href="${maxObj.link}">${maxObj.title}</a>. Mike gave ${hs + maxObj.ratingMike} stars ${he} and Joe gave ${hs + maxObj.ratingJoe} stars${he}.<br><br>Both gave the ${hs}same rating${he} on ${hs + samesies} books${he}. That's ${Math.round(samesies / epArr.length * 100)}% of episodes with ratings.`;
+        return `The ${hs}biggest difference${he} in rating is ${hs + maxDiff} stars${he} on episode ${maxObj.no}: <a href="${maxObj.link}">${maxObj.title}</a>. Mike gave ${hs + maxObj.ratingMike} stars ${he} and Joe gave ${hs + maxObj.ratingJoe} stars${he}.<br><br>Both gave the ${hs}same rating${he} on ${hs + samesies} books${he}. That's ${Math.round(samesies / epArr.length * 100)}% of books rated.`;
     }
 }
