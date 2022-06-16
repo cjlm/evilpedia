@@ -1,7 +1,7 @@
 ---
 title: About
 layout: base.njk
-description: "About this page"
+description: "Bookworm stats is a project that shows the ratings of books discussed in the Bookworm podcast. Learn more about the project on this site."
 ---
 <div class="about-page">
 <div class="about-text">
