@@ -7,12 +7,12 @@ description: "About this page"
 <div class="about-text">
 
 # About
-## The podcast
+## <i class="fa-solid fa-microphone-lines"></i> The podcast
 [Bookworm](https://bookworm.fm/) is an excellent podcast that is dedicated to "doing more than just reading books". It is hosted by [Joe Buhlig](https://twitter.com/joebuhlig) and [Mike Schmitz](https://twitter.com/_MikeSchmitz). Every two weeks Mike and Joe discuss a new book, its takeaways and action items.
 <br><br>
 The first episode was released on July 7, 2016. So far, an impressive {{ bwFeed.episodes | length}} episodes have been released. You can subscribe to the podcast on the [Bookworm website](https://bookworm.fm).
 
-## The project
+## <i class="fa-regular fa-file-code"></i> The project
 Hi! I'm Joschua. Loving to read, I am a big fan of the Bookworm podcast. It's a fantastic way to go deeper on read books and to explore new ones.
 <br><br>
 However, when looking for book recommendations, I don't have the time to listen through all episodes of the podcast. So I set about creating a website that lists all ratings to scan to inform my next read. I hope it is helpful to you too!
