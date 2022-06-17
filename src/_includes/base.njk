@@ -55,12 +55,7 @@
             </div>
         </div>
             <div class="date">
-                <p>Updated last: 
-                    <script>
-                        var d = new Date(); var str = `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`
-                        document.write(str);
-                    </script>
-                </p>
+                <p>Updated last: {{ bwFeed.dateUpdated }}</p>
             </div>
     </footer>
 </html>
