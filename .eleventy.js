@@ -31,12 +31,9 @@ module.exports = function (eleventyConfig) {
     },
   });
 
-  eleventyConfig.addFilter('nan', function (num) {
-    if (isNaN(num)) {
-      return '';
-    }
-    return num;
-  });
+  eleventyConfig.addFilter('nan', (num) =>
+    isNaN(num) || num === '' ? '' : num
+  );
 
   return {
     dir: {

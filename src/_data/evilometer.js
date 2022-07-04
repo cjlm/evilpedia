@@ -2,56 +2,44 @@ const csv = require('csvtojson');
 
 const { mean, extent } = require('d3-array');
 const { scaleLinear } = require('d3-scale');
-const { schemeBrBG } = require('d3-scale-chromatic');
+const { schemePiYG } = require('d3-scale-chromatic');
+
+const HOSTS = ['chris', 'james', 'michael'];
 
 module.exports = async function () {
   const episodes = await csv({ header: true, checkType: true }).fromFile(
     './src/_data/evilometer-data.csv'
   );
 
-  const chris = episodes.map((ep) => ep.chris);
-  const michael = episodes.map((ep) => ep.michael);
-  const james = episodes.map((ep) => ep.james);
+  const values = {};
+  const colorFns = {};
+  const stats = {};
 
-  const chrisColor = scaleLinear()
-    .domain(extent(chris))
-    .range(['green', 'white', 'red']);
+  HOSTS.forEach((host) => {
+    values[host] = episodes.map((ep) => ep[host]);
 
-  const jamesColor = scaleLinear()
-    .domain(extent(james))
-    .range(['green', 'white', 'red']);
+    colorFns[host] = scaleLinear()
+      .domain(extent(values[host]))
+      .range(schemePiYG[7]);
 
-  const michaelColor = scaleLinear()
-    .domain(extent(michael))
-    .range(['green', 'white', 'red']);
-
-  const stats = {
-    chris: {
-      mean: mean(chris),
-      extent: extent(chris),
-    },
-    michael: { mean: mean(michael), extent: extent(michael) },
-    james: { mean: mean(james), extent: extent(james) },
-  };
+    stats[host] = { mean: mean(values[host]), extent: extent(values[host]) };
+  });
 
   const output = Object.fromEntries(
     episodes.map(({ ep, chris, michael, james, ...rest }) => [
       ep,
       {
-        chris: Number(chris),
-        michael: Number(michael),
-        james: Number(james),
-        chrisColor: chrisColor(chris),
-        michaelColor: michaelColor(michael),
-        jamesColor: jamesColor(james),
+        chris,
+        james,
+        michael,
+        chrisColor: colorFns.chris(chris),
+        jamesColor: colorFns.james(james),
+        michaelColor: colorFns.michael(michael),
         avg: mean([chris, michael, james]),
         ...rest,
       },
     ])
   );
 
-  return {
-    ...output,
-    stats,
-  };
+  return { ...output, stats };
 };

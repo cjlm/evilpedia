@@ -178,7 +178,8 @@ header {
   border-radius: 9999px;
   padding: 5px;
   text-align: center;
-  display: block;
+  display: inline-block;
+  min-width: 4rem;
   justify-content: space-between;
 
   @include animateFade();

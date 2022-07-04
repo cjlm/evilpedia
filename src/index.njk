@@ -37,13 +37,13 @@ description: "Index of all the Evil Men covered on the podcast"
           {{ep.title | safe}}
         </td>
         <td class="rating-cell">
-          <span class="rating-no" style='background-color: {{ratings.chrisColor}}'>{{ratings.chris | nan | safe}}</span>
+          <span class="rating-no" style='background-color: {{ ratings.chrisColor if ratings.chris }}'>{{ratings.chris | nan | safe}}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='background-color: {{ratings.michaelColor}}'>{{ratings.michael | nan| safe}}</span>
+          <span class="rating-no" style='background-color: {{ ratings.michaelColor if ratings.michael }}'>{{ratings.michael | nan | safe}}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='background-color: {{ratings.jamesColor}}'>{{ratings.james | nan | safe}}</span>
+          <span class="rating-no" style='background-color: {{ ratings.jamesColor if ratings.james }}'>{{ratings.james | nan | safe}}</span>
         </td>
         <td class="rating-cell">
           <span class="rating-no">{{ratings.guest}}</span>
