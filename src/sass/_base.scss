@@ -98,6 +98,9 @@ th {
   padding: 10px;
   text-align: left;
   margin: 0;
+  &.rating {
+    text-align: center;
+  }
 }
 tr {
   background-color: $surface;
