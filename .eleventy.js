@@ -1,5 +1,3 @@
-const faviconPlugin = require('eleventy-favicon');
-
 const sass = require('sass');
 const path = require('node:path');
 
