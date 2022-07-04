@@ -1,8 +1,8 @@
 const csv = require('csvtojson');
 
 const { mean, extent } = require('d3-array');
-const { scaleLinear } = require('d3-scale');
-const { schemePiYG } = require('d3-scale-chromatic');
+const { scaleSequential, scaleLinear, scaleQuantile } = require('d3-scale');
+const { interpolatePiYG } = require('d3-scale-chromatic');
 
 const HOSTS = ['chris', 'james', 'michael'];
 
@@ -16,13 +16,19 @@ module.exports = async function () {
   const stats = {};
 
   HOSTS.forEach((host) => {
-    values[host] = episodes.map((ep) => ep[host]);
+    values[host] = episodes.map((ep) => Number(ep[host]));
+    stats[host] = {
+      mean: mean(values[host]),
+      extent: extent(values[host].filter((val) => Number(val) < 20)),
+    };
+    colorFns[host] = scaleSequential()
+      // interpolatePiYG
+      // scaleLinear()
+      // scaleQuantile()
+      .range(['white', '#69b3a2'])
+      .domain(stats[host].extent);
 
-    colorFns[host] = scaleLinear()
-      .domain(extent(values[host]))
-      .range(schemePiYG[7]);
-
-    stats[host] = { mean: mean(values[host]), extent: extent(values[host]) };
+    console.log(stats[host]);
   });
 
   const output = Object.fromEntries(
