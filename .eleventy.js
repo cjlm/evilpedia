@@ -5,7 +5,6 @@ const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/js/tablesort.js');
-  eleventyConfig.addPlugin(faviconPlugin);
 
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addExtension('scss', {
