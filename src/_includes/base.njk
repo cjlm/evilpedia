@@ -1,61 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>{{ title }}</title>
-        {% favicon './favicon.svg' %}
-        <meta name="description" content="{{ description }}">
-        <script src="https://kit.fontawesome.com/913bcc60e8.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="aligning">
-            <header>
-                <div class="menu-links">
-                    <a class="logo" href="/">
-                        {# <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.495 2h16.505v-2h-17c-1.656 0-3 1.343-3 3v18c0 1.657 1.344 3 3 3h17v-20h-16.505c-1.376 0-1.376-2 0-2zm.505 4h7v7l2-2 2 2v-7h3v16h-14v-16z"/></svg> #}
-                        {# <i class="fa-solid fa-book"></i> <i class="fa-solid fa-chart-simple"></i> #}
-                        <i class="fa-solid fa-book"></i>
-                        <i class="fa-solid fa-list-ol"></i>
-                    </a>
-                    <a href="/#episodes" class="menu-episodes">Episodes</a>
-                    <a href="/#trivia" class="menu-trivia">Trivia</a>
-                    <a class="about" href="/about">About</a>
-                </div>
-            </header>
-            {{ content | safe }}
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="Eleventy">
+    <title>{{ title }}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😈</text></svg>">
+    <meta name="description" content="{{ description }}" />
+  </head>
+  <body>
+    <div class="aligning">
+      <header>
+        <div class="menu-links">
+          <a class="logo" href="/">
+            {#
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M5.495 2h16.505v-2h-17c-1.656 0-3 1.343-3 3v18c0 1.657 1.344 3 3 3h17v-20h-16.505c-1.376 0-1.376-2 0-2zm.505 4h7v7l2-2 2 2v-7h3v16h-14v-16z"
+              />
+            </svg>
+            #} {# <i class="fa-solid fa-book"></i>
+            <i class="fa-solid fa-chart-simple"></i> #}
+            <i class="fa-solid fa-book"></i>
+            <i class="fa-solid fa-list-ol"></i>
+          </a>
+          <a href="/#episodes" class="menu-episodes">Episodes</a>
+          <a href="/#trivia" class="menu-trivia">Trivia</a>
+          <a class="about" href="/about">About</a>
         </div>
-    </body>
-    <footer>
-        <div class="footer-container">
-            <div class="project">
-                <h3>Project</h3>
-                <p>
-                Made with <i class="fa-regular fa-heart"></i> by <a href="https://twitter.com/selfire1">Joschua</a>.
-            </p>
-                <p>
-                Find the source code on <i class="fa-regular"></i>
-                    <a href="https://github.com/selfire1/bookworm-stats">Github</a>.
-            </p>
-                <p>
-                    <a href="https://www.11ty.dev/">#BuiltWithEleventy</a>
-                </p>
-            </div>
-            <div class="podcast">
-                <h3>Podcast</h3>
-                <p>
-                    <a href="https://bookworm.fm/">Bookworm Website</a>
-                </p>
-                <p>
-                    <a href="https://twitter.com/joebuhlig">Joe Buhlig</a>
-                </p>
-                <p>
-                    <a href="https://twitter.com/_MikeSchmitz">Mike Schmitz</a>
-                </p>
-            </div>
-        </div>
-            <div class="date">
-                <p>Updated last: {{ bwFeed.dateUpdated }}</p>
-            </div>
-    </footer>
+      </header>
+      {{ content | safe }}
+    </div>
+  </body>
+  <footer>
+    <div class="footer-container">
+      <div class="project">
+        <h3>Project</h3>
+        <p>
+          Made with 😈 by
+          <a href="https://cjlm.ca">Christian</a>.
+        </p>
+        <p>
+          Find the source code on <i class="fa-regular"></i>
+          <a href="https://github.com/cjlm/evilpedia">Github</a>.
+        </p>
+        <p>
+          <a href="https://www.11ty.dev/">#BuiltWithEleventy</a>
+        </p>
+      </div>
+      <div class="podcast">
+        <h3>Podcast</h3>
+        <p>
+          <a href="https://thesonarnetwork.com/evil-men/">Evil Men Website</a>
+        </p>
+        <p>
+          <a href="https://twitter.com/chrislockeworld">Chris Locke</a>
+        </p>
+        <p>
+          <a href="https://twitter.com/mbalazo">Michael Balazo</a>
+        </p>
+        <p>
+          <a href="https://twitter.com/jameshartnett">James Hartnett</a>
+        </p>
+      </div>
+    </div>
+    <div class="date">
+      <p>Updated last: {{ evilMenFeed.dateUpdated }}</p>
+    </div>
+  </footer>
 </html>

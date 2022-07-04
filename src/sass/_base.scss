@@ -1,7 +1,7 @@
 // Variables
 // Colors from https://access.mymind.com/colors
-$primary: rgb(92, 69, 123);
-$secondary: #ff7d39;
+$primary: #005397;
+$secondary: #ff8788;
 $muted: lighten($secondary, 36%);
 $grey: grey;
 
@@ -12,24 +12,22 @@ $muted-light: lighten($muted, 1%);
 
 $font-size-text: 1rem;
 $font-size-bigger: 1.125rem;
-$font-size-smaller: .875rem;
+$font-size-smaller: 0.875rem;
 $font-size-h1: 3.375rem;
 $subtitle-size: 1rem;
 $items-width: 1200px;
-$text-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-  "Microsoft YaHei Light", sans-serif;
-$text-accent: "Georgia";
+$text-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Microsoft YaHei Light', sans-serif;
+$text-accent: 'Georgia';
 $surface: white;
 // Mixins
-@mixin shadow-h(){
-box-shadow:
-  3.8px 3.8px 10px rgba(0, 0, 0, 0.06),
-  30px 30px 80px rgba(0, 0, 0, 0.12)
-;
+@mixin shadow-h() {
+  box-shadow: 3.8px 3.8px 10px rgba(0, 0, 0, 0.06),
+    30px 30px 80px rgba(0, 0, 0, 0.12);
 }
-@mixin shadow(){
-    box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05),
+@mixin shadow() {
+  box-shadow: -10px -10px 30px rgba(255, 255, 255, 0.05),
     10px 10px 30px rgba(0, 0, 0, 0.2);
 }
 @mixin card($bg-color) {
@@ -115,11 +113,11 @@ tr {
 }
 
 .table-sortable .th-sort-asc::after {
-  content: "\25b4";
+  content: '\25b4';
 }
 
 .table-sortable .th-sort-desc::after {
-  content: "\25be";
+  content: '\25be';
 }
 
 .table-sortable .th-sort-asc::after,
@@ -177,26 +175,13 @@ header {
   animation: fadein 0.5s;
 }
 .rating-no {
-  display: none;
-  opacity: 0;
+  border-radius: 9999px;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  justify-content: space-between;
+
   @include animateFade();
-}
-.rating-stars {
-  opacity: 0.9;
-  @include animateFade();
-}
-tbody tr:hover {
-  background-color: $muted-light;
-  .rating-no {
-    display: inline-block;
-    opacity: 1;
-    @include animateFade();
-  }
-  .rating-stars {
-    display: none;
-    opacity: 0;
-    @include animateFade();
-  }
 }
 @keyframes fadein {
   from {
@@ -257,7 +242,7 @@ h2 {
   i {
     font-size: 1.4rem;
     color: $primary;
-    opacity: .8;
+    opacity: 0.8;
     position: relative;
     bottom: 2px;
   }
@@ -342,14 +327,14 @@ h2 {
   color: $primary;
   margin-top: 15px;
 }
-[role="h2-subtitle"] {
+[role='h2-subtitle'] {
   text-align: center;
   font-family: $text-font;
   line-height: 22px;
   font-size: $font-size-smaller;
   padding: 5px 0;
 }
-[role="doc-subtitle"] {
+[role='doc-subtitle'] {
   text-align: center;
   font-family: $text-font;
   line-height: 24px;
@@ -399,7 +384,7 @@ footer {
   h3 {
     font-family: $text-accent;
     font-size: $font-size-smaller;
-    color: darken($grey,10%);
+    color: darken($grey, 10%);
     text-align: center;
   }
   .podcast p {
@@ -427,11 +412,11 @@ footer {
     font-size: 2rem;
   }
   p {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
   footer p,
   footer a {
-    font-size: .6875rem;
+    font-size: 0.6875rem;
     line-height: 18px;
   }
   footer .footer-container {
@@ -440,18 +425,18 @@ footer {
 
   header {
     width: 100%;
-    .menu-links{
+    .menu-links {
       width: 100%;
       gap: 10px;
       padding: 0 15px;
     }
-  a {
-    font-size: 0.8rem;
-  }
+    a {
+      font-size: 0.8rem;
+    }
   }
   .card-container {
-      flex-direction: row;
-      gap: 10px;
+    flex-direction: row;
+    gap: 10px;
     .five-stars,
     .difference {
       flex-basis: 100%;
@@ -477,39 +462,24 @@ footer {
       font-size: 1rem;
     }
   }
-  .trivia{
+  .trivia {
     padding-bottom: 20px;
   }
-.rating-stars {
-  display: none;
-  opacity: 0;
-  &:hover {
-    display: none;
-  opacity: 0;
+
+  table {
+    font-size: 0.6rem;
+    td,
+    th {
+      padding: 5px;
+    }
+    .combined-desktop {
+      display: none;
+    }
+    .combined-mobile {
+      display: block;
+    }
   }
-}
-.rating-no {
-  opacity: 1;
-  display: block;
-  &:hover {
-    opacity: 1;
-    display: block;
+  .rating-cell {
+    min-width: 0;
   }
-}
-table {
-  font-size: .6rem;
-  td,
-  th {
-    padding: 5px;
-  }
-  .combined-desktop {
-    display: none;
-  }
-  .combined-mobile {
-    display: block;
-  }
-}
-.rating-cell {
-  min-width: 0;
-}
 }

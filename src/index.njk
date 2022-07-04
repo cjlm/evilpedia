@@ -1,75 +1,82 @@
 ---
-title: Bookworm stats
+title: Evilpedia
 layout: base.njk
-description: "Bookworm stats is a project that shows the ratings of books discussed in the Bookworm podcast."
+description: "Index of all the Evil Men covered on the podcast"
 ---
 
-    <div class="header">
+<div class="header">
+  <h1>{{ title }}</h1>
+  <div role="doc-subtitle">
+  A fan site for the hit comedy podcast Evil Men. All the scores! All the eps!
+  </div>
+</div>
+<div id="episodes" class="sheet">
+  <h2>Episodes</h2>
+  <table class="table-sortable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Chris</th>
+        <th>Michael</th>
+        <th>James</th>
+        <th>Guest</th>
+        <th>
+          <span class="combined-desktop">Combined</span
+          ><span class="combined-mobile">Avg</span>
+        </th>
+      </tr>
+    </thead>
 
-        <h1>{{ title }}</h1>
-        <div role="doc-subtitle">
-            This website is a fan project for the <a href="https://bookworm.fm/">Bookworm Podcast</a>.<br><br>Each episode Joe and Mike read a book, discuss ways to apply the author's lessons to their lives and give it a rating. All of those ratings are listed below for an easy overview!
-        </div>
+    <tbody>
+      {% block tbody %} {% for ep in evilMenFeed.episodes %}
+      {% set ratings = evilometer[ep.no] %}
+      <tr>
+        <td class="link-cell"><a href="{{ep.link}}">{{ep.no | safe}}<a></td>
+        <td class="link-cell">
+          {{ep.title | safe}}
+        </td>
+        <td class="rating-cell">
+          <span class="rating-no" style='background-color: {{ratings.chrisColor}}'>{{ratings.chris | nan | safe}}</span>
+        </td>
+        <td class="rating-cell" >
+          <span class="rating-no" style='background-color: {{ratings.michaelColor}}'>{{ratings.michael | nan| safe}}</span>
+        </td>
+        <td class="rating-cell" >
+          <span class="rating-no" style='background-color: {{ratings.jamesColor}}'>{{ratings.james | nan | safe}}</span>
+        </td>
+        <td class="rating-cell">
+          <span class="rating-no">{{ratings.guest}}</span>
+          {# <span class="rating-stars">{{ep.guest}}</span> #}
+        </td>
+        <td>{{ratings.avg | round(2) | nan }}</td>
+      </tr>
+      {% endfor %} {% endblock %}
+    </tbody>
+  </table>
+</div>
+<div id="trivia" class="trivia">
+  <h2>Evil Trivia</h2>
+  <p role="h2-subtitle">Fun facts and trivia about the podcast.</p>
+  <div class="card-container">
+    <div class="card-item five-stars">
+      <i class="fa-solid fa-medal"></i>
+      <p>{{ evilMenFeed.fiveStars | safe}}</p>
     </div>
-
-    <div id="episodes" class="sheet">
-            <h2>Episodes</h2>
-            <div role="h2-subtitle">Find the ratings for each episode below. <br>The table is sortable by clicking on the column titles.</div>
-        <table class="table-sortable">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Title</th>
-                    <th>Mike's Rating</th>
-                    <th>Joe's Rating</th>
-                    <th><span class="combined-desktop">Combined</span ><span class="combined-mobile">Avg</span></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% block tbody %}
-                    {% for i in bwFeed.episodes %}
-                        <tr>
-                            <td>{{i.no | safe}}</td>
-                            <td class="link-cell">
-                                <a href="{{i.link}}">{{i.title | safe}}</a>
-                            </td>
-                            <td class="rating-cell">
-                                <span class="rating-no">{{i.ratingMike}}</span>
-                                <span class ="rating-stars">{{i.starsMike | safe}}</span>
-                            </td>
-                            <td class="rating-cell">
-                                <span class="rating-no">{{i.ratingJoe}}</span>
-                                <span class ="rating-stars">{{i.starsJoe | safe}}</span>
-                            </td>
-                            <td>{{i.ratingAve}}</td>
-                        </tr>
-                    {% endfor %}
-                {% endblock %}
-            </tbody>
-
-        </table>
+    <div class="card-item mike-average">
+      <i class="fa-solid fa-glasses"></i>
+      <p>{{ evilMenFeed.mikeAvg | safe}}</p>
     </div>
-    <div id="trivia" class="trivia">
-        <h2>Bookworm Trivia</h2>
-        <p role="h2-subtitle">Fun facts and trivia about the podcast.</p>
-        <div class="card-container">
-            <div class="card-item five-stars">
-                <i class="fa-solid fa-medal"></i>
-                <p>{{ bwFeed.fiveStars | safe}}</p>
-            </div>
-            <div class="card-item mike-average">
-                <i class="fa-solid fa-glasses"></i>
-                <p>{{ bwFeed.mikeAvg | safe}}</p>
-            </div>
-            <div class="card-item joe-average">
-                <i class="fa-solid fa-pen-nib"></i>
-                <p>{{ bwFeed.joeAvg | safe}}</p>
-            </div>
-            <div class="card-item difference">
-                <i class="fa-regular fa-comments"></i>
-                <p>{{ bwFeed.biggestDiff | safe }}</p>
-            </div>
-        </div>
+    <div class="card-item joe-average">
+      <i class="fa-solid fa-pen-nib"></i>
+      <p>{{ evilMenFeed.joeAvg | safe}}</p>
     </div>
+    <div class="card-item difference">
+      <i class="fa-regular fa-comments"></i>
+      <p>{{ evilMenFeed.biggestDiff | safe }}</p>
+    </div>
+  </div>
+</div>
 <script src="js/tablesort.js"></script>
+
+<textarea>{{evilometer | dump}}</textarea>
