@@ -32,7 +32,7 @@ description: "Index of all the Evil Men covered on the podcast"
       {% block tbody %} {% for ep in evilMenFeed.episodes %}
       {% set ratings = evilometer[ep.no] %}
       <tr>
-        <td class="link-cell"><a href="{{ep.link}}">{{ep.no | safe}}<a></td>
+        <td class="link-cell"><a href="{{ep.link}}">{{ep.no | safe}}</a></td>
         <td class="link-cell">
           {{ep.title | safe}}
         </td>
@@ -56,7 +56,7 @@ description: "Index of all the Evil Men covered on the podcast"
 </div>
 <div id="trivia" class="trivia">
   <h2>Evil Trivia</h2>
-  <p role="h2-subtitle">Fun facts and trivia about the podcast.</p>
+  <p>Fun facts and trivia about the podcast.</p>
   <div class="card-container">
     <div class="card-item five-stars">
       <i class="fa-solid fa-medal"></i>
