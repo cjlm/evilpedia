@@ -37,17 +37,16 @@ description: "Index of all the Evil Men covered on the podcast"
           {{ep.title | safe}}
         </td>
         <td class="rating-cell">
-          <span class="rating-no" style='background-color: {{ ratings.chrisColor if ratings.chris }}'>{{ratings.chris | nan | safe}}</span>
+          <span class="rating-no" style='background-color: {{ ratings.chrisColor if ratings.chris }};  {{ 'color: #ffffffe6' if ratings.chris > 6 }} '>{{ratings.chris | nan | safe}}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='background-color: {{ ratings.michaelColor if ratings.michael }};  {{ 'color: white' if ratings.michael > 50 }} '>{{ratings.michael | nan | safe}}</span>
+          <span class="rating-no" style='background-color: {{ ratings.michaelColor if ratings.michael }}; {{ 'color: #ffffffe6' if ratings.michael > 6 }} '>{{ratings.michael | nan | safe}}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='background-color: {{ ratings.jamesColor if ratings.james }}'>{{ratings.james | nan | safe}}</span>
+          <span class="rating-no" style='background-color: {{ ratings.jamesColor if ratings.james }}; {{ 'color: #ffffffe6' if ratings.james > 6 }} '>{{ratings.james | nan | safe}}</span>
         </td>
         <td class="rating-cell">
           <span class="rating-no">{{ratings.guest}}</span>
-          {# <span class="rating-stars">{{ep.guest}}</span> #}
         </td>
         <td><span class="avg-no">{{ratings.avg | round(2) | nan }}</span></td>
       </tr>
