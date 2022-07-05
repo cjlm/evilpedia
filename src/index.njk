@@ -4,18 +4,21 @@ layout: base.njk
 description: "Index of all the Evil Men covered on the podcast"
 ---
 
+{% from "evilpedia.njk" import evilpedia %}
+
 <div class="header">
-  <h1>{{ title }}</h1>
+  <h1>{{ evilpedia() }}</h1>
+
   <div role="doc-subtitle">
   A fan site for the hit comedy podcast Evil Men. All the scores! All the eps!
   </div>
 </div>
 <div id="episodes" class="sheet">
-  <h2>Episodes</h2>
+  {# <h2>Episodes</h2> #}
   <table class="table-sortable">
     <thead>
       <tr>
-        <th>No</th>
+        <th>Ep</th>
         <th>Title</th>
         <th class="rating">Chris</th>
         <th class="rating">Michael</th>
@@ -40,7 +43,7 @@ description: "Index of all the Evil Men covered on the podcast"
           <span class="rating-no" style='background-color: {{ ratings.chrisColor if ratings.chris }}'>{{ratings.chris | nan | safe}}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='background-color: {{ ratings.michaelColor if ratings.michael }}'>{{ratings.michael | nan | safe}}</span>
+          <span class="rating-no" style='background-color: {{ ratings.michaelColor if ratings.michael }};  {{ 'color: white' if ratings.michael > 50 }} '>{{ratings.michael | nan | safe}}</span>
         </td>
         <td class="rating-cell" >
           <span class="rating-no" style='background-color: {{ ratings.jamesColor if ratings.james }}'>{{ratings.james | nan | safe}}</span>
@@ -78,3 +81,4 @@ description: "Index of all the Evil Men covered on the podcast"
   </div>
 </div>
 <script src="js/tablesort.js"></script>
+<script src="js/logo.js"></script>

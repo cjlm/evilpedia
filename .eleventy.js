@@ -4,7 +4,8 @@ const path = require('node:path');
 const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy('src/js/tablesort.js');
+  eleventyConfig.addPassthroughCopy('src/js/*');
+  eleventyConfig.addPassthroughCopy('src/background.svg');
 
   eleventyConfig.addTemplateFormats('scss');
   eleventyConfig.addExtension('scss', {

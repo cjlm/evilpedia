@@ -1,6 +1,6 @@
 // Variables
 // Colors from https://access.mymind.com/colors
-$primary: #005397;
+$primary: brown;
 $secondary: #ff8788;
 $muted: lighten($secondary, 36%);
 $grey: grey;
@@ -16,8 +16,8 @@ $font-size-smaller: 0.875rem;
 $font-size-h1: 3.375rem;
 $subtitle-size: 1rem;
 $items-width: 1200px;
-$text-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+$text-font: 'Georgia', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+  Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Microsoft YaHei Light', sans-serif;
 $text-accent: 'Georgia';
 $surface: white;
@@ -159,6 +159,7 @@ header {
   padding: 10px 0;
   .logo {
     color: $surface;
+    width: 80px;
   }
   a {
     &:hover {
@@ -238,6 +239,7 @@ a {
 
 body {
   background-color: $muted;
+  background-image: url('/background.svg');
 }
 .fa-star,
 .fa-star-half {
@@ -294,10 +296,6 @@ h2 {
 .difference {
   flex-basis: 65%;
 }
-.mike-average,
-.joe-average {
-  flex-basis: calc(35% - 20px);
-}
 /* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
   .card-container {
@@ -323,7 +321,9 @@ h1 {
   font-weight: 300;
   letter-spacing: 0;
   text-align: center;
-  color: $secondary;
+  svg {
+    margin: auto;
+  }
 }
 h2 {
   line-height: 40px;
@@ -349,7 +349,7 @@ h2 {
 .header {
   margin-top: 20px;
   margin-bottom: 30px;
-  width: 500px;
+  width: 60vw;
 }
 .card-hl {
   font-weight: 600;
@@ -446,15 +446,11 @@ footer {
     .difference {
       flex-basis: 100%;
     }
-    .mike-average,
-    .joe-average {
-      flex-basis: calc(50% - 5px);
-    }
   }
   .sheet,
   .trivia,
   .header {
-    width: 100%;
+    // width: 100%;
     padding: 0 15px;
   }
   .about-page {

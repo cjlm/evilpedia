@@ -1,3 +1,5 @@
+{% from "evilpedia.njk" import evilpedia %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +14,7 @@
     <div class="aligning">
       <header>
         <div class="menu-links">
-          <a class="logo" href="/">😈</a>
+          <a class="logo" hidden href="/">{{ evilpedia('#fff') }}</a>
           <a href="/#episodes" class="menu-episodes">Episodes</a>
           <a href="/#trivia" class="menu-trivia">Trivia</a>
           <a class="about" href="/about">About</a>

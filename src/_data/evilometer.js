@@ -25,10 +25,8 @@ module.exports = async function () {
       // interpolatePiYG
       // scaleLinear()
       // scaleQuantile()
-      .range(['white', '#69b3a2'])
+      .range(['white', 'hsl(0, 89%, 32%)'])
       .domain(stats[host].extent);
-
-    console.log(stats[host]);
   });
 
   const output = Object.fromEntries(
