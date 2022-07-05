@@ -29,21 +29,34 @@ module.exports = async function () {
       .domain(stats[host].extent);
   });
 
-  const output = Object.fromEntries(
-    episodes.map(({ ep, chris, michael, james, ...rest }) => [
+  const computedEps = episodes.map(
+    ({ ep, chris, michael, james, ...rest }) => ({
       ep,
-      {
-        chris,
-        james,
-        michael,
-        chrisColor: colorFns.chris(chris),
-        jamesColor: colorFns.james(james),
-        michaelColor: colorFns.michael(michael),
-        avg: Number(mean([chris, michael, james])),
-        ...rest,
-      },
+      chris,
+      james,
+      michael,
+      chrisColor: colorFns.chris(chris),
+      jamesColor: colorFns.james(james),
+      michaelColor: colorFns.michael(michael),
+      avg: Number(mean([chris, michael, james])),
+      ...rest,
+    })
+  );
+
+  colorFns.average = scaleSequential()
+    .range(['white', 'hsl(0, 89%, 32%)'])
+    // .domain([extent(computedEps.map((ep) => ep.avg))]);
+    .domain([0, 10]);
+
+  const output = Object.fromEntries(
+    computedEps.map(({ ep, ...rest }) => [
+      ep,
+      { ...rest, a: '1', averageColor: colorFns.average(rest.avg) },
     ])
   );
 
-  return { ...output, stats };
+  return {
+    ...output,
+    stats: { ...stats },
+  };
 };

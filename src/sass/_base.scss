@@ -198,7 +198,9 @@ header {
   @include animateFade();
 }
 .avg-no {
-  border-radius: 1px;
+  border-radius: 3px;
+  font-weight: bold;
+  min-width: 5ch;
 }
 @keyframes fadein {
   from {

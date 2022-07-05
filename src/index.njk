@@ -24,7 +24,7 @@ description: "Index of all the Evil Men covered on the podcast"
         <th class="rating">Michael</th>
         <th class="rating">James</th>
         <th class="rating">Guest</th>
-        <th>Avg</th>
+        <th class="rating">Avg</th>
       </tr>
     </thead>
 
@@ -48,7 +48,7 @@ description: "Index of all the Evil Men covered on the podcast"
         <td class="rating-cell">
           <span class="rating-no">{{ratings.guest}}</span>
         </td>
-        <td><span class="avg-no">{{ratings.avg | round(2) | nan }}</span></td>
+        <td class="rating-cell"><span class="avg-no" style='background-color: {{ ratings.averageColor if ratings.averageColor }}; {{ 'color: #ffffffe6' if ratings.avg > 5 }}'>{{ratings.avg | round(2) | nan }}</span></td>
       </tr>
       {% endfor %} {% endblock %}
     </tbody>
