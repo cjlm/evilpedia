@@ -4,6 +4,7 @@ const path = require('node:path');
 const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy('src/robots.txt');
   eleventyConfig.addPassthroughCopy('src/js/*');
 
   eleventyConfig.addPassthroughCopy({
