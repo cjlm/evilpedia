@@ -1,11 +1,6 @@
 const observer = new IntersectionObserver(
-  function (entries) {
-    if (entries[0].isIntersecting === false) {
-      console.log('Element has just gone');
-      document.getElementsByClassName('logo')[0].hidden = false;
-    } else {
-      document.getElementsByClassName('logo')[0].hidden = true;
-    }
+  function ({ [0]: h1 }) {
+    document.getElementsByClassName('logo')[0].hidden = h1.isIntersecting;
   },
   { threshold: [0] }
 );
