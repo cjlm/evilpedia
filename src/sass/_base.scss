@@ -1,6 +1,4 @@
-// Variables
-// Colors from https://access.mymind.com/colors
-$primary: brown;
+$primary: #b72b2b;
 $secondary: #ff8788;
 $muted: lighten($secondary, 36%);
 $grey: grey;
@@ -108,31 +106,31 @@ tr {
     border-width: 0;
   }
 }
+
 .rating-cell {
   min-width: 130px;
   text-align: center;
 }
+
 .table-sortable th {
   cursor: pointer;
+  &::after {
+    margin-left: 5px;
+  }
+  &[aria-sort='ascending'] {
+    background: $primary-faint;
+    &::after {
+      content: '↓';
+    }
+  }
+  &[aria-sort='descending'] {
+    background: $primary-faint;
+    &::after {
+      content: '↑';
+    }
+  }
 }
 
-.table-sortable .th-sort-asc::after {
-  content: '\25b4';
-}
-
-.table-sortable .th-sort-desc::after {
-  content: '\25be';
-}
-
-.table-sortable .th-sort-asc::after,
-.table-sortable .th-sort-desc::after {
-  margin-left: 5px;
-}
-
-.table-sortable .th-sort-asc,
-.table-sortable .th-sort-desc {
-  background: $primary-faint;
-}
 header {
   width: 100%;
   display: flex;
@@ -189,15 +187,18 @@ header {
 @mixin animateFade {
   animation: fadein 0.5s;
 }
-.rating-no {
+.rating-no,
+.avg-no {
   border-radius: 9999px;
   padding: 5px;
   text-align: center;
   display: inline-block;
   min-width: 4ch;
   justify-content: space-between;
-
   @include animateFade();
+}
+.avg-no {
+  border-radius: 1px;
 }
 @keyframes fadein {
   from {

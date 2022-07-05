@@ -13,7 +13,7 @@ description: ''
 
 Evil Men is a podcast from a trio of Canadian comedians.
 
-The first episode was released on {{ evilMenFeed.episodes[0].pubDate }}. So far, an impressive {{ evilMenFeed.episodes | length }} episodes have been released. You can subscribe to the podcast on the [Bookworm website](https://thesonarnetwork.com/evil-men/).
+The first episode was released on {{ evilMenFeed.episodes[0].pubDate }}. So far, an impressive {{ evilMenFeed.episodes | length }} episodes have been released. You can subscribe to the podcast on the [Evil Men Podcast Site](https://thesonarnetwork.com/evil-men/).
 
 ## 📽 Project
 

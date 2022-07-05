@@ -24,10 +24,7 @@ description: "Index of all the Evil Men covered on the podcast"
         <th class="rating">Michael</th>
         <th class="rating">James</th>
         <th class="rating">Guest</th>
-        <th>
-          <span class="combined-desktop">Combined</span
-          ><span class="combined-mobile">Avg</span>
-        </th>
+        <th>Avg</th>
       </tr>
     </thead>
 
@@ -52,7 +49,7 @@ description: "Index of all the Evil Men covered on the podcast"
           <span class="rating-no">{{ratings.guest}}</span>
           {# <span class="rating-stars">{{ep.guest}}</span> #}
         </td>
-        <td>{{ratings.avg | round(2) | nan }}</td>
+        <td><span class="avg-no">{{ratings.avg | round(2) | nan }}</span></td>
       </tr>
       {% endfor %} {% endblock %}
     </tbody>
@@ -80,5 +77,8 @@ description: "Index of all the Evil Men covered on the podcast"
     </div>
   </div>
 </div>
+
+
+<script src="js/tablesort.min.js"></script>
+<script src="js/tablesort.number.min.js"></script>
 <script src="js/tablesort.js"></script>
-<script src="js/logo.js"></script>

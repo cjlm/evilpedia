@@ -5,6 +5,13 @@ const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/js/*');
+
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/tablesort/dist/tablesort.min.js': 'js/tablesort.min.js',
+    'node_modules/tablesort/dist/sorts/tablesort.number.min.js':
+      'js/tablesort.number.min.js',
+  });
+
   eleventyConfig.addPassthroughCopy('src/background.svg');
 
   eleventyConfig.addTemplateFormats('scss');

@@ -39,7 +39,7 @@ module.exports = async function () {
         chrisColor: colorFns.chris(chris),
         jamesColor: colorFns.james(james),
         michaelColor: colorFns.michael(michael),
-        avg: mean([chris, michael, james]),
+        avg: Number(mean([chris, michael, james])),
         ...rest,
       },
     ])

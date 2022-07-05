@@ -1,8 +1,17 @@
+const hideSmallLogo = (hidden = true) => {
+  document.getElementsByClassName('logo')[0].hidden = hidden;
+};
+
 const observer = new IntersectionObserver(
-  function ({ [0]: h1 }) {
-    document.getElementsByClassName('logo')[0].hidden = h1.isIntersecting;
+  ({ [0]: h1 }) => {
+    hideSmallLogo(h1.isIntersecting);
   },
   { threshold: [0] }
 );
 
-observer.observe(document.querySelector('h1'));
+const bigLogo = document.querySelector('h1 svg');
+if (!bigLogo) {
+  hideSmallLogo(false);
+} else {
+  observer.observe(bigLogo);
+}
