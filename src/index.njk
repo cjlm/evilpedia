@@ -19,7 +19,7 @@ description: "Index of all the Evil Men covered on the podcast"
     <thead>
       <tr>
         <th>Ep</th>
-        <th>Title</th>
+        <th>Subject</th>
         <th class="rating">Chris</th>
         <th class="rating">Michael</th>
         <th class="rating">James</th>
@@ -29,25 +29,29 @@ description: "Index of all the Evil Men covered on the podcast"
     </thead>
 
     <tbody>
-      {% block tbody %} {% for ep in evilMenFeed.episodes %}
-      {% set ratings = evilometer[ep.no] %}
-      <tr {{ "data-sort-method=none" if not ratings.michael and not ratings.chris and not ratings.james }} >
+      {% block tbody %} {% for eom in evilometer.ratings %}
+      {% set feedInfo = eom %}
+
+      {% set ep = evilMenFeed.episodes[eom.ep] %}
+      {% set white = '; color: #ffffffe6' %}
+
+      <tr>
 
         <td class="link-cell"><a href="{{ep.link}}">{{ep.no | safe}}</a></td>
-        <td class="link-cell">{{ep.title | safe}}</td>
+        <td class="link-cell">{{ eom.man or ep.title | safe}}</td>
         <td class="rating-cell">
-          <span class="rating-no" style='{{ 'background-color: ' + ratings.chrisColor if ratings.chris }}{{ '; color: #ffffffe6' if ratings.chris > 6 }}'>{{ ratings.chris | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + eom.chrisColor if eom.chris }}{{ white if eom.chris > 6 }}'>{{ eom.chris | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='{{ 'background-color: ' + ratings.michaelColor if ratings.michael }}{{ ';color: #ffffffe6' if ratings.michael > 6 }}'>{{ ratings.michael | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + eom.michaelColor if eom.michael }}{{ white if eom.michael > 6 }}'>{{ eom.michael | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='{{ 'background-color: ' + ratings.jamesColor if ratings.james }}{{ ';color: #ffffffe6' if ratings.james > 6 }}'>{{ratings.james | rating | safe}}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + eom.jamesColor if eom.james }}{{ white if eom.james > 6 }}'>{{eom.james | rating | safe}}</span>
         </td>
         <td class="rating-cell">
-          <span class="rating-no">{{ratings.guest}}</span>
+          <span class="rating-no">{{eom.guest}}</span>
         </td>
-        <td class="rating-cell"><span class="avg-no" style='background-color: {{ ratings.averageColor if ratings.averageColor }}; {{ 'color: #ffffffe6' if ratings.avg > 5 }}'>{{ratings.avg | round(2) | nan }}</span></td>
+        <td class="rating-cell"><span class="avg-no" style='{{ 'background-color: ' + eom.averageColor if eom.averageColor }}{{ white if eom.avg > 5 }}'>{{eom.avg | round(2) | nan }}</span></td>
       </tr>
       {% endfor %} {% endblock %}
     </tbody>

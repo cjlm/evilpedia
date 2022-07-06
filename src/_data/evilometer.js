@@ -48,15 +48,13 @@ module.exports = async function () {
     // .domain([extent(computedEps.map((ep) => ep.avg))]);
     .domain([0, 10]);
 
-  const output = Object.fromEntries(
-    computedEps.map(({ ep, ...rest }) => [
-      ep,
-      { ...rest, a: '1', averageColor: colorFns.average(rest.avg) },
-    ])
-  );
-
   return {
-    ...output,
+    ratings: computedEps
+      .map((data) => ({
+        ...data,
+        averageColor: colorFns.average(data.avg),
+      }))
+      .reverse(),
     stats: { ...stats },
   };
 };

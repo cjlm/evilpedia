@@ -6,17 +6,14 @@ const EleventyFetch = require('@11ty/eleventy-fetch');
 module.exports = async function () {
   const url = 'https://thesonarnetwork.com/evil-men/feed/podcast';
 
-  let rssXml = await EleventyFetch(url, {
-    duration: '1d', // 1 day
-    type: 'text', // also supports "text" or "buffer"
-  });
-
+  let rssXml = await EleventyFetch(url, { duration: '1d', type: 'text' });
   const rss = await parser.parseString(rssXml);
 
   const filter = ({ title }) =>
     title.startsWith('E') &&
     !title.includes('Teaser') &&
-    !title.includes('Preview');
+    !title.includes('Preview') &&
+    !title.includes('A Taste of Evil Men');
 
   let episodes = rss.items.filter(filter).map((ep) => {
     let guest = '';
@@ -25,6 +22,8 @@ module.exports = async function () {
 
     no = no.replace('E', '');
 
+    title = title.replace('ft.', '');
+    title = title.replace('LIVE! ', '');
     title = title.replace(/Pt\.\d/gm, '');
 
     if (title.includes('with')) {
@@ -40,5 +39,8 @@ module.exports = async function () {
     };
   });
 
-  return { dateUpdated: new Date(), episodes };
+  return {
+    dateUpdated: new Date(),
+    episodes: Object.fromEntries(episodes.map((ep) => [ep.no, ep])),
+  };
 };
