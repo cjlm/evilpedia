@@ -53,6 +53,10 @@ body {
   min-height: 100%;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .aligning {
   flex: 1;
   padding: 20px;
@@ -92,6 +96,7 @@ table {
 }
 td,
 th {
+  user-select: none;
   border-bottom: 1px solid $primary-light;
   padding: 10px;
   text-align: left;
@@ -156,6 +161,7 @@ header {
   }
   padding: 10px 0;
   .logo {
+    display: inline-flex;
     color: $surface;
     width: 60px;
     animation-duration: 0.1s;
@@ -463,7 +469,7 @@ footer {
   .sheet,
   .trivia,
   .header {
-    // width: 100%;
+    width: 100%;
     padding: 0 15px;
   }
   .about-page {

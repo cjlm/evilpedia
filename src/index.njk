@@ -31,19 +31,18 @@ description: "Index of all the Evil Men covered on the podcast"
     <tbody>
       {% block tbody %} {% for ep in evilMenFeed.episodes %}
       {% set ratings = evilometer[ep.no] %}
-      <tr>
+      <tr {{ "data-sort-method=none" if not ratings.michael and not ratings.chris and not ratings.james }} >
+
         <td class="link-cell"><a href="{{ep.link}}">{{ep.no | safe}}</a></td>
-        <td class="link-cell">
-          {{ep.title | safe}}
-        </td>
+        <td class="link-cell">{{ep.title | safe}}</td>
         <td class="rating-cell">
-          <span class="rating-no" style='background-color: {{ ratings.chrisColor if ratings.chris }};  {{ 'color: #ffffffe6' if ratings.chris > 6 }} '>{{ratings.chris | nan | safe}}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ratings.chrisColor if ratings.chris }}{{ '; color: #ffffffe6' if ratings.chris > 6 }}'>{{ ratings.chris | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='background-color: {{ ratings.michaelColor if ratings.michael }}; {{ 'color: #ffffffe6' if ratings.michael > 6 }} '>{{ratings.michael | nan | safe}}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ratings.michaelColor if ratings.michael }}{{ ';color: #ffffffe6' if ratings.michael > 6 }}'>{{ ratings.michael | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='background-color: {{ ratings.jamesColor if ratings.james }}; {{ 'color: #ffffffe6' if ratings.james > 6 }} '>{{ratings.james | nan | safe}}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ratings.jamesColor if ratings.james }}{{ ';color: #ffffffe6' if ratings.james > 6 }}'>{{ratings.james | rating | safe}}</span>
         </td>
         <td class="rating-cell">
           <span class="rating-no">{{ratings.guest}}</span>

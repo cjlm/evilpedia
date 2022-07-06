@@ -44,6 +44,8 @@ module.exports = function (eleventyConfig) {
     isNaN(num) || num === '' ? '' : num
   );
 
+  eleventyConfig.addFilter('rating', (num) => (num === undefined ? '?' : num));
+
   return {
     dir: {
       input: 'src',
