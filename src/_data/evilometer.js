@@ -18,6 +18,7 @@ module.exports = async function () {
   HOSTS.forEach((host) => {
     values[host] = episodes.map((ep) => Number(ep[host]));
     stats[host] = {
+      ratings: values[host],
       mean: mean(values[host]),
       extent: extent(values[host].filter((val) => Number(val) < 20)),
     };
@@ -48,13 +49,12 @@ module.exports = async function () {
     // .domain([extent(computedEps.map((ep) => ep.avg))]);
     .domain([0, 10]);
 
-  return {
-    ratings: computedEps
-      .map((data) => ({
-        ...data,
-        averageColor: colorFns.average(data.avg),
-      }))
-      .reverse(),
-    stats: { ...stats },
-  };
+  const ratings = computedEps
+    .map((data) => ({
+      ...data,
+      averageColor: colorFns.average(data.avg),
+    }))
+    .reverse();
+
+  return { ratings, stats };
 };

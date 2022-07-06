@@ -3,6 +3,8 @@ const path = require('node:path');
 
 const fs = require('fs');
 
+const cplot = require('cplot');
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/robots.txt');
   eleventyConfig.addPassthroughCopy('src/js/*');
@@ -39,6 +41,32 @@ module.exports = function (eleventyConfig) {
         return `${parsed.name}.css`;
       },
     },
+  });
+
+  eleventyConfig.addShortcode('scatter', (x, y, series) => {
+    const input = `
+x-axis:
+  label ${x}
+y-axis:
+  label ${y}`;
+
+    const cols = ['red', 'blue', 'orange'];
+    const markers = ['o', 'x', '+'];
+    const plot = series
+      .map(
+        (s, i) => `
+plot:
+  mode log
+  color ${cols[i]}
+  marker ${markers[i]}
+  x ${new Array(s.length).map((_, i) => i)}
+  ls none
+  y ${s.map((val) => Math.min(10, val)).join(' ')}
+`
+      )
+      .join('\n');
+
+    return cplot(`${input}${plot}`).replace(/<rect.*?>.*?<\/rect>/gi, '');
   });
 
   eleventyConfig.addFilter('nan', (num) =>

@@ -257,8 +257,8 @@ a {
 }
 
 body {
-  background-color: $muted;
   background-image: url('/background.svg');
+  font-family: $text-font;
 }
 .fa-star,
 .fa-star-half {
@@ -290,7 +290,7 @@ h2 {
   flex-wrap: wrap;
   align-items: stretch;
   margin-top: 20px;
-  gap: 20px;
+  gap: 10px;
 }
 .card-item {
   @include card(white);
@@ -309,6 +309,12 @@ h2 {
     color: $secondary;
     margin-bottom: 10px;
     margin-top: 5px;
+  }
+  &.chart {
+    width: 100%;
+  }
+  &.average {
+    width: 30%;
   }
 }
 .five-stars,
@@ -333,7 +339,7 @@ h2 {
   }
 }
 h1 {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   font-family: $text-accent;
   font-size: $font-size-h1;
   line-height: 4rem;

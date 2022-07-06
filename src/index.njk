@@ -59,21 +59,24 @@ description: "Index of all the Evil Men covered on the podcast"
 </div>
 <div id="trivia" class="trivia">
   <h2>Evil Trivia</h2>
-  <p>Fun facts and trivia about the podcast.</p>
   <div class="card-container">
-    <div class="card-item five-stars">
+    <div class="card-item chart">
       <i class="fa-solid fa-medal"></i>
-      <p>{{ evilMenFeed.fiveStars | safe}}</p>
+      <p>{% scatter "","",[evilometer.stats.chris.ratings, evilometer.stats.michael.ratings, evilometer.stats.james.ratings]%}</p>
     </div>
-    <div class="card-item mike-average">
+    <div class="card-item average">
       <i class="fa-solid fa-glasses"></i>
-      <p>{{ evilMenFeed.mikeAvg | safe}}</p>
+      <p>Chris's average rating is {{ evilometer.stats.chris.mean | round(2) }}</p>
     </div>
-    <div class="card-item joe-average">
-      <i class="fa-solid fa-pen-nib"></i>
-      <p>{{ evilMenFeed.joeAvg | safe}}</p>
+    <div class="card-item average">
+      <i class="fa-solid fa-glasses"></i>
+      <p>Michael's average rating is {{ evilometer.stats.michael.mean | round(2) }}</p>
     </div>
-    <div class="card-item difference">
+    <div class="card-item average">
+      <i class="fa-solid fa-glasses"></i>
+      <p>James's average rating is {{ evilometer.stats.james.mean | round(2) }}</p>
+    </div>
+    <div class="card-item chart">
       <i class="fa-regular fa-comments"></i>
       <p>{{ evilMenFeed.biggestDiff | safe }}</p>
     </div>

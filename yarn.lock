@@ -346,6 +346,14 @@ constantinople@^4.0.1:
     "@babel/parser" "^7.6.0"
     "@babel/types" "^7.6.1"
 
+cplot@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/cplot/-/cplot-0.0.3.tgz#80a82d6f49ec9476fe074634b3b72ec979773bde"
+  integrity sha512-o321d88XO8ydeKtIPOl4gQo2wasDPTNpiGNGWfZbhglsOBqeyJMOTwAo968Kv1nMHSTIjDLwvXr7BSdmPszfQA==
+  dependencies:
+    csv-parse "^4.8.9"
+    minimist "^1.2.5"
+
 cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -354,6 +362,11 @@ cross-spawn@^7.0.3:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+csv-parse@^4.8.9:
+  version "4.16.3"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.16.3.tgz#7ca624d517212ebc520a36873c3478fa66efbaf7"
+  integrity sha512-cO1I/zmz4w2dcKHVvpCr7JVRu8/FymG5OEpmvsZYlccYolPBLoVGKUHgNoc4ZGkFeFlWGEDmMyBM+TTqRdW/wg==
 
 csvtojson@^2.0.10:
   version "2.0.10"
