@@ -234,9 +234,6 @@ thead {
   display: flex;
   flex-direction: column;
   align-items: center;
-  & > .fa-solid {
-    font-size: $icon-size;
-  }
 }
 
 @mixin sheet {
@@ -263,11 +260,11 @@ body {
   background-image: url('/background.svg');
   font-family: $text-font;
 }
-.fa-star,
-.fa-star-half {
-  color: $primary;
-}
 h2 {
+  svg {
+    height: 25px;
+    display: inline;
+  }
   i {
     font-size: 1.4rem;
     color: $primary;
