@@ -1,0 +1,25 @@
+<div id="stats" class="stats">
+  <h2>Evil Stats</h2>
+  <div class="card-container">
+    <div class="card-item chart">
+      {{ evilMenFeed.charts.scatter | safe }}
+    </div>
+      <div class="card-item average">
+        <i class="fa-solid fa-glasses"></i>
+        <p>Chris's average rating is {{ evilMenFeed.stats.chris.mean | round(2) }}</p>
+      </div>
+      <div class="card-item average">
+        <i class="fa-solid fa-glasses"></i>
+        <p>Michael's average rating is {{ evilMenFeed.stats.michael.mean | round(2) }}</p>
+      </div>
+      <div class="card-item average">
+        <i class="fa-solid fa-glasses"></i>
+        <p>James's average rating is {{ evilMenFeed.stats.james.mean | round(2) }}</p>
+      </div>
+{#     <div class="card-item chart">
+      <i class="fa-regular fa-comments"></i>
+      <p>{{ evilMenFeed.biggestDiff | safe }}</p>
+    </div> #}
+  </div>
+</div>
+

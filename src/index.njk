@@ -14,7 +14,6 @@ description: "Index of all the Evil Men covered on the podcast"
   </div>
 </div>
 <div id="episodes" class="sheet">
-  {# <h2>Episodes</h2> #}
   <table class="table-sortable">
     <thead>
       <tr>
@@ -55,35 +54,8 @@ description: "Index of all the Evil Men covered on the podcast"
     </tbody>
   </table>
 </div>
-<div id="trivia" class="trivia">
-  <h2>Evil Trivia</h2>
-  <div class="card-container">
-    <div class="card-item chart">
-      <i class="fa-solid fa-medal"></i>
-      <p>
-      {# {% scatter evilMenFeed.stats.ratings %} #}
-      {{ evilMenFeed.charts.scatter | safe }}
-      </p>
-    </div>
-    <div class="card-item average">
-      <i class="fa-solid fa-glasses"></i>
-      <p>Chris's average rating is {{ evilMenFeed.stats.chris.mean | round(2) }}</p>
-    </div>
-    <div class="card-item average">
-      <i class="fa-solid fa-glasses"></i>
-      <p>Michael's average rating is {{ evilMenFeed.stats.michael.mean | round(2) }}</p>
-    </div>
-    <div class="card-item average">
-      <i class="fa-solid fa-glasses"></i>
-      <p>James's average rating is {{ evilMenFeed.stats.james.mean | round(2) }}</p>
-    </div>
-    <div class="card-item chart">
-      <i class="fa-regular fa-comments"></i>
-      <p>{{ evilMenFeed.biggestDiff | safe }}</p>
-    </div>
-  </div>
-</div>
 
+{% include 'stats.njk' %}
 
 <script src="js/tablesort.min.js"></script>
 <script src="js/tablesort.number.min.js"></script>

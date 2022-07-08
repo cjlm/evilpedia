@@ -5,11 +5,11 @@ const HOSTS = ['chris', 'james', 'michael'];
 
 async function charts(episodes) {
   const values = [];
-  episodes.reverse().forEach((ep, episode) => {
+  episodes.reverse().forEach((ep) => {
     HOSTS.forEach((host) => {
       const rating = ep[host];
       if (rating) {
-        values.push({ host, value: Math.min(rating, 10), episode });
+        values.push({ host, value: Math.min(rating, 10), episode: ep.no });
       }
     });
   });
@@ -21,8 +21,8 @@ async function charts(episodes) {
     description:
       'A scatterplot showing various scores given by the hosts of Evil Men',
     data: { values },
-    width: 480,
-    height: 260,
+    width: 800,
+    // height: 200,
     mark: 'point',
     encoding: {
       x: {

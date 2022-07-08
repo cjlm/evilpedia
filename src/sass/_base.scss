@@ -276,7 +276,7 @@ h2 {
     bottom: 2px;
   }
 }
-.trivia {
+.stats {
   @include sheet();
   display: flex;
   flex-direction: column;
@@ -316,9 +316,9 @@ h2 {
   &.chart {
     width: 100%;
   }
-  &.average {
-    width: 30%;
-  }
+}
+.average {
+  width: calc(33% - 6px);
 }
 .five-stars,
 .difference {
@@ -330,6 +330,7 @@ h2 {
     flex-direction: column;
   }
   .sheet,
+  .average,
   .card-container {
     width: 100%;
   }
@@ -474,9 +475,12 @@ footer {
     .difference {
       flex-basis: 100%;
     }
+    .average {
+      flex-basis: calc(33% - 5px);
+    }
   }
   .sheet,
-  .trivia,
+  .stats,
   .header {
     width: 100%;
     padding: 0 15px;
@@ -491,7 +495,7 @@ footer {
       font-size: 1rem;
     }
   }
-  .trivia {
+  .stats {
     padding-bottom: 20px;
   }
 
