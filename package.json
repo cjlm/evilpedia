@@ -14,13 +14,14 @@
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-canary.12",
     "@11ty/eleventy-fetch": "^3.0.0",
-    "cplot": "^0.0.3",
     "csvtojson": "^2.0.10",
     "d3-array": "^2",
     "d3-scale": "^3",
     "d3-scale-chromatic": "^2",
     "rss-parser": "^3.12.0",
     "sass": "^1.53.0",
-    "tablesort": "^5.3.0"
+    "tablesort": "^5.3.0",
+    "vega": "^5.22.1",
+    "vega-lite": "^5.3.0"
   }
 }
