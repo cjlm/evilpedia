@@ -8,6 +8,8 @@ const csv = require('csvtojson');
 const { mean, extent } = require('d3-array');
 const { scaleSequential, scaleLinear, scaleQuantile } = require('d3-scale');
 
+const { tidy, leftJoin } = require('@tidyjs/tidy');
+
 const evilCharts = require('../js/charts');
 
 const getFeed = async () => {
@@ -23,29 +25,30 @@ const getFeed = async () => {
     !title.includes('A Taste of Evil Men');
 
   let episodes = rss.items.filter(filter).map((ep) => {
-    let guest = '';
+    let guestName = '';
 
     let [no, title] = ep.title.split(':');
 
-    no = no.replace('E', '');
+    no = Number(no.replace('E', ''));
 
     title = title.replace('ft.', '');
     title = title.replace('LIVE! ', '');
     title = title.replace(/Pt\.\d/gm, '');
 
     if (title.includes('with')) {
-      [subject, guest] = title.split('with');
+      [subject, guestName] = title.split('with');
       title = subject;
     }
 
     return {
       ...ep,
       no,
-      guest,
+      guestName,
       title,
     };
   });
-  return Object.fromEntries(episodes.map((ep) => [ep.no, ep]));
+  // return Object.fromEntries(episodes.map((ep) => [ep.no, ep]));
+  return episodes;
 };
 
 const getRatings = async () => {
@@ -57,6 +60,8 @@ const getRatings = async () => {
   const colorFns = {};
   const stats = {};
 
+  const scale = () => scaleSequential().range(['white', 'hsl(0, 89%, 32%)']);
+
   HOSTS.forEach((host) => {
     values[host] = episodes.map((ep) => Number(ep[host]));
     stats[host] = {
@@ -64,16 +69,12 @@ const getRatings = async () => {
       mean: mean(values[host]),
       extent: extent(values[host].filter((val) => Number(val) < 20)),
     };
-    colorFns[host] = scaleSequential()
-      // scaleLinear()
-      // scaleQuantile()
-      .range(['white', 'hsl(0, 89%, 32%)'])
-      .domain(stats[host].extent);
+    colorFns[host] = scale().domain(stats[host].extent);
   });
 
   const computedEps = episodes.map(
-    ({ ep, chris, michael, james, ...rest }) => ({
-      ep,
+    ({ no, chris, michael, james, ...rest }) => ({
+      no,
       chris,
       james,
       michael,
@@ -85,9 +86,7 @@ const getRatings = async () => {
     })
   );
 
-  colorFns.average = scaleSequential()
-    .range(['white', 'hsl(0, 89%, 32%)'])
-    .domain([0, 10]);
+  colorFns.average = scale().domain([0, 10]);
 
   const ratings = computedEps
     .map((data) => ({
@@ -96,29 +95,19 @@ const getRatings = async () => {
     }))
     .reverse();
 
-  return {
-    ratings,
-    stats,
-  };
+  return { ratings, stats };
 };
 
 module.exports = async function () {
   const { ratings, stats } = await getRatings();
   const feed = await getFeed();
 
-  const episodes = ratings
-    .map((rating) => ({
-      rating,
-      ...feed[rating.ep],
-    }))
-    .reverse();
-
-  const charts = await evilCharts(episodes);
+  const episodes = tidy(feed, leftJoin(ratings, { by: 'no' })).reverse();
 
   return {
     dateUpdated: new Date(),
     episodes,
     stats,
-    charts,
+    charts: await evilCharts(episodes),
   };
 };

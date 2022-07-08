@@ -7,7 +7,7 @@ async function charts(episodes) {
   const values = [];
   episodes.reverse().forEach((ep, episode) => {
     HOSTS.forEach((host) => {
-      const rating = ep.rating[host];
+      const rating = ep[host];
       if (rating) {
         values.push({ host, value: Math.min(rating, 10), episode });
       }
@@ -41,7 +41,13 @@ async function charts(episodes) {
     },
     config: {
       axis: { labelFont, titleFont },
-      legend: { labelFont, titleFont },
+      legend: {
+        labelFont,
+        titleFont,
+        orient: 'top',
+        title: false,
+        layout: { top: { anchor: 'middle' } },
+      },
       header: { labelFont, titleFont },
       mark: { font },
       title: { font, subtitleFont },

@@ -140,6 +140,14 @@
     escape-string-regexp "^2.0.0"
     lodash.deburr "^4.1.0"
 
+"@tidyjs/tidy@^2.4.6":
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/@tidyjs/tidy/-/tidy-2.4.6.tgz#ed8539a5063a94fc8959e51bd925a7cbdda732ae"
+  integrity sha512-yzt03tlX94WELtlL7YfyjCc7+gBhe47hgwzUhtEGnYKrhV2SoIOQ+rfD3jHwwUp5VW3sEyoQ7McukUJmdeHomw==
+  dependencies:
+    d3-array "^2.9.1"
+    ts-toolbelt "^8.0.7"
+
 "@types/clone@~2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@types/clone/-/clone-2.1.1.tgz#9b880d0ce9b1f209b5e0bd6d9caa38209db34024"
@@ -415,7 +423,7 @@ csvtojson@^2.0.10:
   dependencies:
     internmap "1 - 2"
 
-d3-array@2, d3-array@^2, d3-array@^2.3.0:
+d3-array@2, d3-array@^2, d3-array@^2.3.0, d3-array@^2.9.1:
   version "2.12.1"
   resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-2.12.1.tgz#e20b41aafcdffdf5d50928004ececf815a465e81"
   integrity sha512-B0ErZK/66mHtEsR1TkPEEkwdy+WDesimkM5gpZr5Dsg54BiTA5RXtYW5qTLIAcekaS9xfZrzBLF/OAkB3Qn1YQ==
@@ -1651,6 +1659,11 @@ tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
+
+ts-toolbelt@^8.0.7:
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-8.4.0.tgz#af6e64b87be3e097fac63600ce9556e78542fa27"
+  integrity sha512-hnGJXIgC49ZuF5g5oDthoge8t4cvT0dYg2pYO5C6yV/HmUUy1koooU2U/5K2N+Uw++hcXQpJAToLRa+GRp28Sg==
 
 tslib@~2.4.0:
   version "2.4.0"

@@ -31,27 +31,25 @@ description: "Index of all the Evil Men covered on the podcast"
     <tbody>
       {% block tbody %} {% for ep in evilMenFeed.episodes %}
 
-      {% set rating = ep.rating %}
       {% set white = '; color: #ffffffe6' %}
-
-      {% set number = "P" if ep.rating.ep == "patreon" else ep.no %}
+      {% set number = "P" if ep.no == "patreon" else ep.no %}
 
       <tr>
         <td class="link-cell"><a href="{{ep.link}}">{{number | safe}}</a></td>
-        <td class="link-cell">{{ rating.man or ep.title | safe}}</td>
+        <td class="link-cell">{{ ep.man or ep.title | safe}}</td>
         <td class="rating-cell">
-          <span class="rating-no" style='{{ 'background-color: ' + rating.chrisColor if rating.chris }}{{ white if rating.chris > 6 }}'>{{ rating.chris | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ep.chrisColor if ep.chris }}{{ white if ep.chris > 6 }}'>{{ ep.chris | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='{{ 'background-color: ' + rating.michaelColor if rating.michael }}{{ white if rating.michael > 6 }}'>{{ rating.michael | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ep.michaelColor if ep.michael }}{{ white if ep.michael > 6 }}'>{{ ep.michael | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='{{ 'background-color: ' + rating.jamesColor if rating.james }}{{ white if rating.james > 6 }}'>{{ rating.james | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ep.jamesColor if ep.james }}{{ white if ep.james > 6 }}'>{{ ep.james | rating | safe }}</span>
         </td>
         <td class="rating-cell">
-          <span class="rating-no">{{rating.guest}}</span>
+          <span class="rating-no guest">{{ep.guest}}</span>
         </td>
-        <td class="rating-cell"><span class="avg-no" style='{{ 'background-color: ' + rating.averageColor if rating.averageColor }}{{ white if rating.avg > 5 }}'>{{rating.avg | round(2) | nan }}</span></td>
+        <td class="rating-cell"><span class="avg-no" style='{{ 'background-color: ' + ep.averageColor if ep.averageColor }}{{ white if ep.avg > 5 }}'>{{ep.avg | round(2) | nan }}</span></td>
       </tr>
       {% endfor %} {% endblock %}
     </tbody>

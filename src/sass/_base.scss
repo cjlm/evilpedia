@@ -203,6 +203,9 @@ header {
   justify-content: space-between;
   @include animateFade();
 }
+.guest {
+  font-size: $font-size-smaller;
+}
 .avg-no {
   border-radius: 3px;
   font-weight: bold;

@@ -45,10 +45,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('rating', (n) => (n === undefined ? '?' : n));
 
   return {
-    dir: {
-      input: 'src',
-      output: '_site',
-    },
+    dir: { input: 'src', output: '_site' },
     templateFormats: ['md', 'njk', 'html'],
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
