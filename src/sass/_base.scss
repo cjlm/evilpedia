@@ -307,7 +307,7 @@ h2 {
   border-radius: 8px;
   border: 1px solid $secondary-light;
   margin: 0px;
-  i {
+  .icon {
     font-size: 22px;
     color: $secondary;
     margin-bottom: 10px;
@@ -335,12 +335,13 @@ h2 {
     width: 100%;
   }
 }
-.icon-center-two {
+.icon {
   @include icon-center(1rem);
   padding-top: 10px;
   h2 {
     margin-top: 6px;
   }
+  height: 75px;
 }
 h1 {
   margin-bottom: 15px;
@@ -472,11 +473,12 @@ footer {
     flex-direction: row;
     gap: 10px;
     .five-stars,
+    .average,
     .difference {
       flex-basis: 100%;
     }
     .average {
-      flex-basis: calc(33% - 5px);
+      // flex-basis: calc(33% - 5px);
     }
   }
   .sheet,

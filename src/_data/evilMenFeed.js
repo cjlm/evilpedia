@@ -64,10 +64,13 @@ const getRatings = async () => {
 
   HOSTS.forEach((host) => {
     values[host] = episodes.map((ep) => Number(ep[host]));
+    const range = extent(values[host]);
+
     stats[host] = {
       ratings: values[host],
       mean: mean(values[host]),
-      extent: extent(values[host].filter((val) => Number(val) < 20)),
+      max: range[1],
+      extent: range.map((e) => Math.min(e, 10)),
     };
     colorFns[host] = scale().domain(stats[host].extent);
   });
@@ -102,7 +105,9 @@ module.exports = async function () {
   const { ratings, stats } = await getRatings();
   const feed = await getFeed();
 
-  const episodes = tidy(feed, leftJoin(ratings, { by: 'no' })).reverse();
+  const episodes = tidy(feed, leftJoin(ratings, { by: 'no' }))
+    .filter((ep) => ep.no != 48)
+    .reverse();
 
   return {
     dateUpdated: new Date(),
