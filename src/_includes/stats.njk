@@ -4,21 +4,24 @@
     <div class="card-item chart">
       {{ evilMenFeed.charts.scatter | safe }}
     </div>
-      <div class="card-item average">
-        <div class="icon">{% include 'parrot-head.svg' %}</div>
-        <p>Chris's average rating is {{ evilMenFeed.stats.chris.mean | round(2) }}</p>
-        <p>The highest score he's given is {{ evilMenFeed.stats.chris.max}}</p>
-      </div>
-      <div class="card-item average">
-        <div class="icon">{% include 'praying-mantis.svg' %}</div>
-        <p>Michael's average rating is {{ evilMenFeed.stats.michael.mean | round(2) }}</p>
-        <p>The highest score he's given is {{ evilMenFeed.stats.michael.max}}</p>
-      </div>
-      <div class="card-item average">
-        <div class="icon">{% include 'labrador-head.svg' %}</div>
-        <p>James's average rating is {{ evilMenFeed.stats.james.mean | round(2) }}</p>
-        <p>The highest score he's given is {{ evilMenFeed.stats.james.max}}</p>
-      </div>
+    <div class="card-item average">
+      <div class="icon">{% include 'parrot-head.svg' %}</div>
+      <p>Chris's average rating is {{ evilMenFeed.stats.chris.mean | round(2) }}</p>
+      <p>The highest score he's given is {{ evilMenFeed.stats.chris.max}}</p>
+    </div>
+    <div class="card-item average">
+      <div class="icon">{% include 'praying-mantis.svg' %}</div>
+      <p>Michael's average rating is {{ evilMenFeed.stats.michael.mean | round(2) }}</p>
+      <p>The highest score he's given is {{ evilMenFeed.stats.michael.max}}</p>
+    </div>
+    <div class="card-item average">
+      <div class="icon">{% include 'labrador-head.svg' %}</div>
+      <p>James's average rating is {{ evilMenFeed.stats.james.mean | round(2) }}</p>
+      <p>The highest score he's given is {{ evilMenFeed.stats.james.max}}</p>
+    </div>
+    <div class="card-item chart">
+      {{ evilMenFeed.charts.bar | safe }}
+    </div>
 {#     <div class="card-item chart">
       <i class="fa-regular fa-comments"></i>
       <p>{{ evilMenFeed.biggestDiff | safe }}</p>
