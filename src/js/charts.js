@@ -12,7 +12,6 @@ const makeChart = async (inputSpec) => {
 
 async function charts(episodes) {
   const values = [];
-  const bar = [];
   episodes.reverse().forEach((ep) => {
     HOSTS.forEach((host) => {
       const rating = ep[host];
@@ -25,9 +24,6 @@ async function charts(episodes) {
         });
       }
     });
-    // if (rating ){
-    //   bar.push({})
-    // }
   });
 
   const font = (titleFont = labelFont = subtitleFont = 'monospace');
@@ -56,14 +52,14 @@ async function charts(episodes) {
       x: {
         field: 'episode',
         type: 'quantitative',
-        scale: { zero: false },
+        scale: { zero: false, title: 'Episode Number' },
       },
       y: {
         field: 'value',
         title: 'rating',
         type: 'quantitative',
         scale: { zero: false },
-        axis: { label: false },
+        axis: { label: false, title: 'Evil Rating' },
       },
       color: { field: 'host', type: 'nominal' },
       shape: { field: 'host', type: 'nominal' },
@@ -78,16 +74,23 @@ async function charts(episodes) {
     width: 800,
     mark: 'bar',
     encoding: {
-      x: { aggregate: 'sum', field: 'value' },
+      x: {
+        aggregate: 'sum',
+        field: 'value',
+        axis: { title: 'Sum of Evil Ratings' },
+      },
       y: { field: 'title', sort: '-x', axis: { title: false } },
       color: { field: 'host' },
     },
     config,
   };
 
+  const removeWidthHeight = (str) =>
+    str.replace(/(width|height)\=\"\d*"/gm, '');
+
   return {
-    scatter: await makeChart(scatterSpec),
-    bar: await makeChart(barSpec),
+    scatter: removeWidthHeight(await makeChart(scatterSpec)),
+    bar: removeWidthHeight(await makeChart(barSpec)),
   };
 }
 

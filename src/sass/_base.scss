@@ -66,8 +66,12 @@ footer {
   padding: 20px;
 }
 p {
+  margin-top: 8px;
   font-size: $font-size-text;
   font-family: $text-font;
+}
+p + p {
+  margin-top: 8px;
 }
 .aligning,
 .sheet {

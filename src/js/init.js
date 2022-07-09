@@ -16,6 +16,9 @@ if (!bigLogo) {
   observer.observe(bigLogo);
 }
 
-new Tablesort(document.getElementsByClassName('table-sortable')[0], {
-  descending: true,
-});
+const table = document.getElementsByClassName('table-sortable')[0];
+if (table) {
+  new Tablesort(table, {
+    descending: true,
+  });
+}
