@@ -8,7 +8,7 @@ Built with [Eleventy](https://www.11ty.dev/), hosted on [Cloudflare Pages](https
 
 Read more at [About](https://thesonarnetwork.com/evil-men/about/).
 
-Originally based on [Bookworm stats](https://bookworm-stats.pages.dev/)
+Originally based on [Bookworm stats](https://bookworm-stats.pages.dev/).
 
 ## Setup
 
