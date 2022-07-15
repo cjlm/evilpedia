@@ -35,8 +35,11 @@ const getFeed = async () => {
     title = title.replace('LIVE! ', '');
     title = title.replace(/Pt\.\d/gm, '');
 
-    if (title.includes('with')) {
-      [subject, guestName] = title.split('with');
+    const withWords = ['with', 'w/'].map((w) => ` ${w} `);
+    const hasWith = withWords.filter((w) => title.includes(w));
+
+    if (hasWith.length > 0) {
+      [subject, guestName] = title.split(hasWith[0]);
       title = subject;
     }
 
