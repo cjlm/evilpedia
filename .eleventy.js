@@ -3,6 +3,11 @@ const path = require('node:path');
 
 const fs = require('fs');
 
+const tablesortPath = require.resolve('tablesort');
+const tablesortNumberPath = require.resolve(
+  'tablesort/dist/sorts/tablesort.number.min.js'
+);
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/robots.txt');
   eleventyConfig.addPassthroughCopy('src/js/*');
@@ -10,9 +15,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon/*');
 
   eleventyConfig.addPassthroughCopy({
-    'node_modules/tablesort/dist/tablesort.min.js': 'js/tablesort.min.js',
-    'node_modules/tablesort/dist/sorts/tablesort.number.min.js':
-      'js/tablesort.number.min.js',
+    [tablesortPath]: 'js/tablesort.min.js',
+    [tablesortNumberPath]: 'js/tablesort.number.min.js',
   });
 
   eleventyConfig.addPassthroughCopy('src/background.svg');
