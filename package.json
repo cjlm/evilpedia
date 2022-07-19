@@ -9,7 +9,7 @@
     "build": "eleventy"
   },
   "keywords": [],
-  "author": "Joschua",
+  "author": "Christian Miles",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-canary.12",
