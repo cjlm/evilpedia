@@ -88,7 +88,7 @@ const getRatings = async () => {
       chrisColor: colorFns.chris(chris),
       jamesColor: colorFns.james(james),
       michaelColor: colorFns.michael(michael),
-      avg: Number(mean([chris, michael, james])),
+      avg: Number(mean([chris, michael, james].filter(Boolean))),
       ...rest,
     })
   );
