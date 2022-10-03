@@ -22,6 +22,7 @@ const getFeed = async () => {
     title.startsWith('E') &&
     !title.includes('Teaser') &&
     !title.includes('Preview') &&
+    !title.includes('The Evil Test') &&
     !title.includes('A Taste of Evil Men');
 
   let episodes = rss.items.filter(filter).map((ep) => {
