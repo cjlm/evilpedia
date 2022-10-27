@@ -1,6 +1,6 @@
-name: Log new evilometer rating 
+name: Log new evilometer rating
 description: An easy form to add to the evilpedia csv
-title: "New episode"
+title: 'New episode'
 labels: new-episode
 body:
   - type: input
@@ -8,7 +8,7 @@ body:
     attributes:
       label: Episode
       description: Episode number
-      placeholder: 0
+      placeholder: '0'
     validations:
       required: false
   - type: input
@@ -16,7 +16,7 @@ body:
     attributes:
       label: Chris
       description: Chris' rating
-      placeholder: 0
+      placeholder: '0'
     validations:
       required: false
   - type: input
@@ -24,7 +24,7 @@ body:
     attributes:
       label: James
       description: James's rating
-      placeholder: 0
+      placeholder: '0'
     validations:
       required: false
   - type: input
@@ -32,7 +32,7 @@ body:
     attributes:
       label: Michael
       description: Michael's rating
-      placeholder: 0
+      placeholder: '0'
     validations:
       required: false
   - type: guest
@@ -40,6 +40,6 @@ body:
     attributes:
       label: Guest
       description: Guest's rating
-      placeholder: 0
+      placeholder: '0'
     validations:
       required: false
