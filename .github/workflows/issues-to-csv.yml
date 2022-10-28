@@ -22,7 +22,7 @@ jobs:
       - uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/log_evilometer_score.yml
+          template-path: .github/ISSUE_TEMPLATE/log-evilometer-score.yml
 
       - uses: gr2m/write-csv-file-action@v1.x
         with:
@@ -40,7 +40,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add *
-          git commit -m "Adding data file for #${{ github.event.issue.number }}"
+          git commit -m "Added evilometer scores for episode ${{ steps.issue-parser.outputs.issueparser_episode }}"
           git push
       - name: Close issue
         uses: peter-evans/close-issue@v1

@@ -46,6 +46,6 @@ body:
     id: man
     attributes:
       label: Man
-      description: Evil Man
+      description: Just in case it's not clear who the subject is this week, you can add it here.
     validations:
       required: false
