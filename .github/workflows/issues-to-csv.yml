@@ -22,7 +22,7 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/log-evilometer-score.yml
 
-      - uses: cjlm/write-csv-file-action@v1.x
+      - uses: cjlm/write-csv-file-action
         with:
           path: src/_data/evilometer-data.csv
           columns: no,chris,james,michael,guest,man
