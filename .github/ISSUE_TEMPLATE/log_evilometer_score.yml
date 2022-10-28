@@ -8,7 +8,6 @@ body:
     attributes:
       label: Episode
       description: Episode number
-      placeholder: ''
     validations:
       required: false
   - type: input
@@ -16,7 +15,7 @@ body:
     attributes:
       label: Chris
       description: Chris' rating
-      placeholder: ''
+      placeholder: '0'
     validations:
       required: false
   - type: input
@@ -24,7 +23,7 @@ body:
     attributes:
       label: James
       description: James's rating
-      placeholder: ''
+      placeholder: '0'
     validations:
       required: false
   - type: input
@@ -32,7 +31,7 @@ body:
     attributes:
       label: Michael
       description: Michael's rating
-      placeholder: ''
+      placeholder: '0'
     validations:
       required: false
   - type: input
@@ -40,7 +39,7 @@ body:
     attributes:
       label: Guest
       description: Guest's rating
-      placeholder: ''
+      placeholder: '0'
     validations:
       required: false
   - type: input
@@ -48,6 +47,5 @@ body:
     attributes:
       label: Man
       description: Evil Man
-      placeholder: ''
     validations:
       required: false
