@@ -30,8 +30,8 @@ jobs:
           columns: no,chris,james,michael,guest,man
           'no': ${{ steps.issue-parser.outputs.issueparser_episode }}
           'chris': ${{ steps.issue-parser.outputs.issueparser_chris }}
-          'james': ${{ steps.issue-parser.outputs.issueparser_michael }}
-          'michael': ${{ steps.issue-parser.outputs.issueparser_guest }}
+          'james': ${{ steps.issue-parser.outputs.issueparser_james }}
+          'michael': ${{ steps.issue-parser.outputs.issueparser_michael }}
           'guest': ${{ steps.issue-parser.outputs.issueparser_guest }}
           'man': ${{ steps.issue-parser.outputs.issueparser_man }}
 
@@ -40,10 +40,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add *
-          git commit -m "Adding data file for #${{ env.IssueNumber }}"
+          git commit -m "Adding data file for #${{ github.event.issue.number }}"
           git push
       - name: Close issue
         uses: peter-evans/close-issue@v1
         with:
-          issue-number: '${{ env.IssueNumber }}'
+          issue-number: '${{ github.event.issue.number }}'
           comment: 'Thank you! Your data file has been added!'
