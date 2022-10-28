@@ -4,8 +4,6 @@ on:
   issues:
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issues
     types:
-      - opened
-      - edited
       - reopened
       - labeled
 
@@ -24,7 +22,7 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/log-evilometer-score.yml
 
-      - uses: gr2m/write-csv-file-action@v1.x
+      - uses: cjlm/write-csv-file-action@v1.x
         with:
           path: src/_data/evilometer-data.csv
           columns: no,chris,james,michael,guest,man
