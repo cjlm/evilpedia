@@ -37,18 +37,18 @@ description: "Index of all the Evil Men covered on the podcast"
         <td class="link-cell"><a href="{{ep.link}}">{{number | safe}}</a></td>
         <td class="link-cell">{{ ep.man or ep.title | safe}}</td>
         <td class="rating-cell">
-          <span class="rating-no" style='{{ 'background-color: ' + ep.chrisColor if ep.chris }}{{ white if ep.chris > 6 }}'>{{ ep.chris | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ep.chrisColor if ep.chris }}{{ white if ep.chris > 7 }}'>{{ ep.chris | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='{{ 'background-color: ' + ep.michaelColor if ep.michael }}{{ white if ep.michael > 6 }}'>{{ ep.michael | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ep.michaelColor if ep.michael }}{{ white if ep.michael > 7 }}'>{{ ep.michael | rating | safe }}</span>
         </td>
         <td class="rating-cell" >
-          <span class="rating-no" style='{{ 'background-color: ' + ep.jamesColor if ep.james }}{{ white if ep.james > 6 }}'>{{ ep.james | rating | safe }}</span>
+          <span class="rating-no" style='{{ 'background-color: ' + ep.jamesColor if ep.james }}{{ white if ep.james > 7 }}'>{{ ep.james | rating | safe }}</span>
         </td>
         <td class="rating-cell">
           <span class="rating-no guest">{{ep.guest}}</span>
         </td>
-        <td class="rating-cell"><span class="avg-no" style='{{ 'background-color: ' + ep.averageColor if ep.averageColor }}{{ white if ep.avg > 5 }}'>{{ep.avg | round(2) | nan }}</span></td>
+        <td class="rating-cell"><span class="avg-no" style='{{ 'background-color: ' + ep.averageColor if ep.averageColor }}{{ white if ep.avg > 7 }}'>{{ep.avg | round(2) | nan }}</span></td>
       </tr>
       {% endfor %} {% endblock %}
     </tbody>
