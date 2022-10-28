@@ -86,7 +86,9 @@ async function charts(episodes) {
   };
 
   const removeWidthHeight = (str) =>
-    str.replace(/(width|height)\=\"\d*"/gm, '');
+    str
+      .replace(/(width|height)\=\"\d*"/gm, '')
+      .replaceAll('stroke- opacity', 'stroke-opacity');
 
   return {
     scatter: removeWidthHeight(await makeChart(scatterSpec)),

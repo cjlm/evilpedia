@@ -1,9 +1,7 @@
 <div id="stats" class="stats">
   <h2>Evil Stats</h2>
   <div class="card-container">
-    <div class="card-item chart">
-      {{ evilMenFeed.charts.scatter | safe }}
-    </div>
+    <div class="card-item chart"><img src="/scatter.svg" alt="A scatterplot showing various scores given by the hosts of Evil Men" loading="lazy"/></div>
     <div class="card-item average">
       <div class="icon">{% include 'parrot-head.svg' %}</div>
       <p>Chris's average rating is {{ evilMenFeed.stats.chris.mean | round(2) }}</p>
@@ -19,13 +17,7 @@
       <p>James's average rating is {{ evilMenFeed.stats.james.mean | round(2) }}</p>
       <p>The highest score he's given is {{ evilMenFeed.stats.james.max}}</p>
     </div>
-    <div class="card-item chart">
-      {{ evilMenFeed.charts.bar | safe }}
-    </div>
-{#     <div class="card-item chart">
-      <i class="fa-regular fa-comments"></i>
-      <p>{{ evilMenFeed.biggestDiff | safe }}</p>
-    </div> #}
+    <div class="card-item chart"><img src="/chart.svg" alt="A histogram plot showing the sum of scores for each evil man" loading="lazy"/></div>
   </div>
 </div>
 
