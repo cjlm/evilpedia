@@ -1,0 +1,49 @@
+name: Convert Issues to CSV data
+
+on:
+  issues:
+    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issues
+    types:
+      - opened
+      - edited
+      - reopened
+      - labeled
+
+jobs:
+  update_library:
+    runs-on: ubuntu-latest
+    name: Append to the evilometer CSV
+    # only continue if issue has "new-score" label
+    if: contains( github.event.issue.labels.*.name, 'new-score')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/log_evilometer_score.yml
+
+      - uses: gr2m/write-csv-file-action@v1.x
+        with:
+          path: src/_data/evilometer-data.csv
+          columns: no,chris,james,michael,guest,man
+          'no': ${{ steps.issue-parser.outputs.issueparser_episode }}
+          'chris': ${{ steps.issue-parser.outputs.issueparser_chris }}
+          'james': ${{ steps.issue-parser.outputs.issueparser_michael }}
+          'michael': ${{ steps.issue-parser.outputs.issueparser_guest }}
+          'guest': ${{ steps.issue-parser.outputs.issueparser_guest }}
+          'man': ${{ steps.issue-parser.outputs.issueparser_man }}
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add *
+          git commit -m "Adding data file for #${{ env.IssueNumber }}"
+          git push
+      - name: Close issue
+        uses: peter-evans/close-issue@v1
+        with:
+          issue-number: '${{ env.IssueNumber }}'
+          comment: 'Thank you! Your data file has been added!'
