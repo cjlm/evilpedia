@@ -31,7 +31,7 @@ const getFeed = async () => {
 
     let [no, title] = ep.title.split(':');
 
-    no = Number(no.replace('E', ''));
+    no = Number(no.replace('EP', '').replace('E', ''));
 
     title = title.replace('ft.', '');
     title = title.replace('LIVE! ', '');
