@@ -12,6 +12,19 @@ const { tidy, leftJoin } = require('@tidyjs/tidy');
 
 const evilCharts = require('../js/charts');
 
+const EXCLUDE_LIST = [
+  'Teaser',
+  'Preview',
+  'The Evil Test',
+  'A Taste of Evil Men',
+  'Holiday Spectacular',
+  '74:',
+  '69:',
+];
+
+const checkExcludeList = (title) =>
+  EXCLUDE_LIST.every((exclude) => !title.includes(exclude));
+
 const getFeed = async () => {
   const url = 'https://thesonarnetwork.com/evil-men/feed/podcast';
 
@@ -21,12 +34,7 @@ const getFeed = async () => {
   const filter = ({ title }) =>
     title.startsWith('E') &&
     !title.includes('Teaser') &&
-    !title.includes('Preview') &&
-    !title.includes('The Evil Test') &&
-    !title.includes('A Taste of Evil Men') &&
-    !title.includes('Holiday Spectacular Listener Questions') &&
-    !title.includes('74:') &&
-    !title.includes('69:');
+    checkExcludeList(title);
 
   let episodes = rss.items.filter(filter).map((ep) => {
     let guestName = '';
