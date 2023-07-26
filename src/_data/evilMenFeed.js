@@ -20,6 +20,7 @@ const EXCLUDE_LIST = [
   'Holiday Spectacular',
   '74:',
   '69:',
+  '100:',
 ];
 
 const checkExcludeList = (title) =>
