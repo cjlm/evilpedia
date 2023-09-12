@@ -22,6 +22,7 @@ const EXCLUDE_LIST = [
   '69:',
   'LIVE!',
   '100:',
+  'Evil Men Origins'
 ];
 
 const checkExcludeList = (title) =>
