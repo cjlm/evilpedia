@@ -22,7 +22,9 @@ const EXCLUDE_LIST = [
   '69:',
   'LIVE!',
   '100:',
-  'Evil Men Origins'
+  'Evil Men Origins',
+  '117:',
+  '120:',
 ];
 
 const checkExcludeList = (title) =>
@@ -48,9 +50,9 @@ const getFeed = async () => {
 
     title = title.replace('ft.', '');
     title = title.replace('LIVE! ', '');
-    title = title.replace(/Pt\.\d/gm, '');
+    title = title.replace(/Pt\.\d/gim, '');
 
-    const withWords = ['with', 'w/'].map((w) => ` ${w} `);
+    const withWords = ['with', 'w/'];
     const hasWith = withWords.filter((w) => title.includes(w));
 
     if (hasWith.length > 0) {
