@@ -2,7 +2,6 @@ let Parser = require('rss-parser');
 let parser = new Parser();
 
 const EleventyFetch = require('@11ty/eleventy-fetch');
-
 const csv = require('csvtojson');
 
 const { mean, extent } = require('d3-array');
@@ -25,6 +24,8 @@ const EXCLUDE_LIST = [
   'Evil Men Origins',
   '117:',
   '120:',
+  'Awards',
+  '131:',
 ];
 
 const checkExcludeList = (title) =>
@@ -106,7 +107,7 @@ const getRatings = async () => {
       michaelColor: colorFns.michael(michael),
       avg: Number(mean([chris, michael, james].filter(Boolean))),
       ...rest,
-    })
+    }),
   );
 
   colorFns.average = scale().domain([0, 10]);
