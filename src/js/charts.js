@@ -20,7 +20,7 @@ async function charts(episodes) {
           host,
           value: Math.min(rating, 10),
           episode: ep.no,
-          title: (ep.man || ep.title).trim(),
+          title: (ep.man || ep.title || "").toString().trim(),
         });
       }
     });
