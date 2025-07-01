@@ -53,6 +53,7 @@ const getFeed = async () => {
     title = title.replace('LIVE! ', '');
     title = title.replace('with Sooz Kempner', '')
     title = title.replace('Return of the Sooz –', '')
+    title = title.replace(' aka Jim from Office', '')
     title = title.replace(/Pt\.\d/gim, '');
 
     const withWords = ['with', 'w/'];
