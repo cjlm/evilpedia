@@ -131,6 +131,7 @@ module.exports = async function () {
 
   const episodes = tidy(feed, leftJoin(ratings, { by: 'no' }))
     .filter((ep) => ep.no != 48)
+    .filter((ep) => ep.avg !== undefined)
     .reverse();
 
   return {
